@@ -1,0 +1,3031 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for the STM32duino Arduino core and ecosystem">
+      
+      
+      
+        <link rel="canonical" href="https://stm32duino.github.io/dev/customization/Custom-definitions/">
+      
+      
+        <link rel="prev" href="../../cmake/cubeIDE/">
+      
+      
+        <link rel="next" href="../Custom-board-based-on-a-core/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
+    
+    
+      
+        <title>Custom Definitions - STM32duino</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.84d31ad4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../inline-code.css">
+    
+      <link rel="stylesheet" href="../../supported-boards/supported-boards.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#custom-definitions" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="STM32duino" class="md-header__button md-logo" aria-label="STM32duino" data-md-component="logo">
+      
+  <img src="../../img/stm32duino.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            STM32duino
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Custom Definitions
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/stm32duino/Arduino_Core_STM32" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    stm32duino/Arduino_Core_STM32
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="STM32duino" class="md-nav__button md-logo" aria-label="STM32duino" data-md-component="logo">
+      
+  <img src="../../img/stm32duino.png" alt="logo">
+
+    </a>
+    STM32duino
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/stm32duino/Arduino_Core_STM32" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    stm32duino/Arduino_Core_STM32
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Getting-Started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Arduino IDE 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Getting-Started_V1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Legacy IDE 1.8.x
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Upload-methods/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Upload Methods
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Examples
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Examples
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples/Examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples/Blink-example/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Blink
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FAQ/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    FAQ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../supported-boards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Supported Boards
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Core Reference
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Core Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Arduino API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../HardwareTimer-library/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hardware Timer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Pin-naming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pin Naming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../STM32MP1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    STM32MP1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Libraries
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Libraries
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../libraries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Built-in
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Built-in
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../libraries/built-in/Servo-library/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Servo
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Dedicated
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            Dedicated
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../libraries/dedicated/HTS221/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HTS221
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../libraries/dedicated/LPS22HB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LPS22HB
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../libraries/dedicated/LIS3MDL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LIS3MDL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../libraries/dedicated/LSM6DSL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LSM6DSL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../libraries/dedicated/M24SR64-Y/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    M24SR64-Y
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../libraries/dedicated/MX25R6435F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MX25R6435F
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../libraries/dedicated/SPBTLE-RF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SPBTLE-RF
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../libraries/dedicated/STM32Ethernet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    STM32Ethernet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../libraries/dedicated/VL53L0X/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    VL53L0X
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Connectivity
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            Connectivity
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../libraries/LoRa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LoRa
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../libraries/STM32duinoBLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    STM32duinoBLE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Hosted library documentation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_5">
+            <span class="md-nav__icon md-icon"></span>
+            Hosted library documentation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../libraries/Hosted-library-documentation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Library documentation index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://stm32duino.github.io/STM32LoRaWAN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    STM32LoRaWAN
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Development
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Development
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/Contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Contributing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/Using-git-repository/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Using the Git Repository
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/Where-are-sources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Source Locations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/Astyle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Code Style
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_5" id="__nav_6_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Add a Board Variant
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_5">
+            <span class="md-nav__icon md-icon"></span>
+            Add a Board Variant
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/Add-a-new-variant/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/Add-a-new-variant/generic-variant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Generic Variant
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/Add-a-new-variant/dedicated-board/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Dedicated Board
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_6" id="__nav_6_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    CMake
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_6">
+            <span class="md-nav__icon md-icon"></span>
+            CMake
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cmake/Introduction-to-CMake/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cmake/STM32duino-CMake-Build-System/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    STM32duino CMake Build System
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cmake/Setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cmake/Quickstart-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Quickstart
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cmake/Advanced-usage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Advanced Usage
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cmake/Functions-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Functions Reference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cmake/Arduino-%28in%29compatibility/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Arduino Compatibility
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cmake/cubeIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CubeIDE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6_7" id="__nav_6_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Customization
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6_7">
+            <span class="md-nav__icon md-icon"></span>
+            Customization
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Custom Definitions
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Custom Definitions
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#rebuild-after-changing-definitions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rebuild after changing definitions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#change-interrupt-priority-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      Change interrupt priority values
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Change interrupt priority values">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-startup-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom startup file
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Custom startup file">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#redefine-the-default-startup-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Redefine the default startup file
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Redefine the default startup file">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-for-nucleo_l476rg" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example for Nucleo_L476RG:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-startup-file-in-the-variant" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom startup file in the variant
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Custom startup file in the variant">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-for-nucleo_l476rg_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example for Nucleo_L476RG:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-pinmap-array" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom PinMap array
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Custom PinMap array">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-for-the-adc-pinmap-of-the-nucleo_f103rb" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example for the ADC PinMap of the NUCLEO_F103RB
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i2c-timing" class="md-nav__link">
+    <span class="md-ellipsis">
+      I2C Timing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="I2C Timing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-to-compute-64-valid-timing-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example to compute 64 valid timing values
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-for-an-stm32f0xx-using-the-hsi-clock-as-the-i2c-clock-source-in-varianth" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example for an STM32F0xx using the HSI clock as the I2C clock source, in variant.h:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i2c-timeout-in-tick-unit" class="md-nav__link">
+    <span class="md-ellipsis">
+      I2C timeout in tick unit
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="I2C timeout in tick unit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-to-decrease-or-increase-the-i2c-timeout-in-ticks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example to decrease or increase the I2C timeout in ticks
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#f_cpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      F_CPU
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#serial-rxtx-buffer-size" class="md-nav__link">
+    <span class="md-ellipsis">
+      Serial Rx/Tx buffer size
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Serial Rx/Tx buffer size">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-using-build_opth" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example using build_opt.h:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#systemclock_config" class="md-nav__link">
+    <span class="md-ellipsis">
+      SystemClock_Config
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enable-ucpd-dead-battery-behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enable UCPD dead battery behavior
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Custom-board-based-on-a-core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Custom Boards
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Customize-build-options-using-build_opt.h/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Build Options
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HAL-configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HAL Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_8" id="__nav_6_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    IDE
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_8">
+            <span class="md-nav__icon md-icon"></span>
+            IDE
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/ide/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/ide/PlatformIO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PlatformIO
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_9" id="__nav_6_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    How to Debug
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_9">
+            <span class="md-nav__icon md-icon"></span>
+            How to Debug
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/debug/How-to-debug/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Arduino IDE 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/debug/eclipse-sloeber/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Eclipse and Sloeber
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/debug/platformio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PlatformIO
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/debug/visualgdb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Visual Studio and VisualGDB
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/debug/cubeclt-cortex-debug/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    STM32CubeCLT and cortex-debug
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/debug/command-line-gdb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Command Line GDB
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/debug/troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/Documentation-workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Documentation Workflow
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#rebuild-after-changing-definitions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rebuild after changing definitions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#change-interrupt-priority-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      Change interrupt priority values
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Change interrupt priority values">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-startup-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom startup file
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Custom startup file">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#redefine-the-default-startup-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Redefine the default startup file
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Redefine the default startup file">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-for-nucleo_l476rg" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example for Nucleo_L476RG:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-startup-file-in-the-variant" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom startup file in the variant
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Custom startup file in the variant">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-for-nucleo_l476rg_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example for Nucleo_L476RG:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-pinmap-array" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom PinMap array
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Custom PinMap array">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-for-the-adc-pinmap-of-the-nucleo_f103rb" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example for the ADC PinMap of the NUCLEO_F103RB
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i2c-timing" class="md-nav__link">
+    <span class="md-ellipsis">
+      I2C Timing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="I2C Timing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-to-compute-64-valid-timing-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example to compute 64 valid timing values
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-for-an-stm32f0xx-using-the-hsi-clock-as-the-i2c-clock-source-in-varianth" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example for an STM32F0xx using the HSI clock as the I2C clock source, in variant.h:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i2c-timeout-in-tick-unit" class="md-nav__link">
+    <span class="md-ellipsis">
+      I2C timeout in tick unit
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="I2C timeout in tick unit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-to-decrease-or-increase-the-i2c-timeout-in-ticks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example to decrease or increase the I2C timeout in ticks
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#f_cpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      F_CPU
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#serial-rxtx-buffer-size" class="md-nav__link">
+    <span class="md-ellipsis">
+      Serial Rx/Tx buffer size
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Serial Rx/Tx buffer size">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-using-build_opth" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example using build_opt.h:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#systemclock_config" class="md-nav__link">
+    <span class="md-ellipsis">
+      SystemClock_Config
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enable-ucpd-dead-battery-behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enable UCPD dead battery behavior
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="custom-definitions">Custom definitions</h1>
+<p>Several core definitions can be overridden by the user. Choose the location based on the scope of the change:</p>
+<table>
+<thead>
+<tr>
+<th>Location</th>
+<th>Typical use</th>
+<th>Scope</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>build_opt.h</code></td>
+<td>Compiler definitions and per-sketch options; see <a href="../Customize-build-options-using-build_opt.h/">Customize build options using build_opt.h</a></td>
+<td>Current sketch</td>
+</tr>
+<tr>
+<td><code>hal_conf_extra.h</code></td>
+<td>HAL module and configuration overrides; see <a href="../HAL-configuration/">HAL configuration</a></td>
+<td>Current sketch</td>
+</tr>
+<tr>
+<td><code>variant.h</code></td>
+<td>Board or variant defaults</td>
+<td>Board package</td>
+</tr>
+<tr>
+<td>Sketch-level weak override</td>
+<td>Replacement of weak functions or arrays</td>
+<td>Current sketch</td>
+</tr>
+</tbody>
+</table>
+<p>Prefer a sketch-level override for application-specific changes. Modify <code>variant.h</code> or board files only when maintaining a board package.</p>
+<h2 id="rebuild-after-changing-definitions">Rebuild after changing definitions</h2>
+<p>After changing <code>build_opt.h</code>, <code>hal_conf_extra.h</code>, or another custom definition, force a clean rebuild so the Arduino IDE does not reuse previously compiled core objects. Enable verbose compilation output and look for <code>Build options changed, rebuilding all</code>.</p>
+<p>If the output contains <code>Using previously compiled file:</code>, hold the <strong>Shift</strong> key while clicking the <strong>Verify</strong> button to run a clean compile/verify in <a href="https://github.com/arduino/arduino-ide/releases/tag/2.3.10">Arduino IDE 2.3.10 or later</a>. With Arduino CLI, use <code>arduino-cli compile --clean --fqbn &lt;fqbn&gt; &lt;sketch-directory&gt;</code>. You can also close and reopen the Arduino IDE or change an applicable board option before compiling again. See <a href="../Customize-build-options-using-build_opt.h/">Customize build options using build_opt.h</a> for more details.</p>
+<h2 id="change-interrupt-priority-values">Change interrupt priority values</h2>
+<p>The core and related STM32duino libraries define default IRQ priorities that can be overridden with the following definitions:</p>
+<ul>
+<li><code>UART_IRQ_PRIO</code></li>
+<li><code>EXTI_IRQ_PRIO</code></li>
+<li><code>I2C_IRQ_PRIO</code></li>
+<li><code>RTC_IRQ_PRIO</code></li>
+<li><code>TIM_IRQ_PRIO</code></li>
+<li><code>USBD_IRQ_PRIO</code></li>
+<li><code>IPCC_IRQ_PRIO</code> when <code>VIRTIOCON</code> is enabled</li>
+</ul>
+<p>The same applies to IRQ sub-priorities:</p>
+<ul>
+<li><code>UART_IRQ_SUBPRIO</code></li>
+<li><code>EXTI_IRQ_SUBPRIO</code></li>
+<li><code>I2C_IRQ_SUBPRIO</code></li>
+<li><code>RTC_IRQ_SUBPRIO</code></li>
+<li><code>TIM_IRQ_SUBPRIO</code></li>
+<li><code>USBD_IRQ_SUBPRIO</code></li>
+<li><code>IPCC_IRQ_SUBPRIO</code> when <code>VIRTIOCON</code> is enabled</li>
+</ul>
+<p><code>RTC_IRQ_PRIO</code> and <code>RTC_IRQ_SUBPRIO</code> are provided by the separate <a href="https://github.com/stm32duino/STM32RTC">STM32RTC library</a>, not by the core itself.</p>
+<h4 id="example">Example</h4>
+<p>Using <code>build_opt.h</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="go">-DUSBD_IRQ_PRIO=2 -DUSBD_IRQ_SUBPRIO=2</span>
+</code></pre></div>
+<h2 id="custom-startup-file">Custom startup file</h2>
+<p>The core uses a default startup file selected by the <code>CMSIS_STARTUP_FILE</code> definition:</p>
+<p><a href="https://github.com/stm32duino/Arduino_Core_STM32/blob/main/cores/arduino/stm32/startup_stm32yyxx.S">default startup file</a></p>
+<p>The definition is provided by <a href="https://github.com/stm32duino/Arduino_Core_STM32/blob/main/cores/arduino/stm32/stm32_def_build.h"><code>stm32_def_build.h</code></a>. The startup implementation is provided by the CMSIS device package in the <a href="https://github.com/stm32duino/Arduino_Core_STM32/tree/main/system/Drivers/CMSIS/Device/ST"><code>system/Drivers/CMSIS/Device/ST/</code></a> directory.</p>
+<p>You can redefine <code>CMSIS_STARTUP_FILE</code> for a sketch or define a custom startup file in a variant.</p>
+<h3 id="redefine-the-default-startup-file">Redefine the default startup file</h3>
+<p>Using <code>build_opt.h</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="go">-DCMSIS_STARTUP_FILE=\"mystartup_file.s\"</span>
+</code></pre></div>
+<p>Then add your <code>mystartup_file.s</code> in the sketch folder (i.e. in a tab of your sketch files).</p>
+<h4 id="example-for-nucleo_l476rg">Example for <em>Nucleo_L476RG</em>:</h4>
+<div class="highlight"><pre><span></span><code><span class="go">-DCMSIS_STARTUP_FILE=\"startup_stm32l476xx.s\"</span>
+</code></pre></div>
+<h3 id="custom-startup-file-in-the-variant">Custom startup file in the variant</h3>
+<p>It is required to define <code>CUSTOM_STARTUP_FILE</code> in <code>boards.txt</code> and add a <code>*.S</code> file in the <code>variant/</code> folder.</p>
+<p>Syntax in the board.txt:
+<code>xxx.build.startup_file=-DCUSTOM_STARTUP_FILE</code></p>
+<h4 id="example-for-nucleo_l476rg_1">Example for <em>Nucleo_L476RG</em>:</h4>
+<p><code>Nucleo_64.menu.pnum.NUCLEO_L476RG.build.startup_file=-DCUSTOM_STARTUP_FILE</code></p>
+<p>Then add a <code>*.S</code> file in the <code>variant/NUCLEO_L476RG/</code> folder and guard it so that it is compiled only for the selected target:</p>
+<div class="highlight"><pre><span></span><code>#if defined(ARDUINO_NUCLEO_L476RG)
+/* Beginning of the startup file */
+...
+/* End of the startup file */
+#endif /* ARDUINO_NUCLEO_L476RG */
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The variant startup file extension must be <code>.S</code>, not <code>.s</code>.</p>
+</div>
+<h2 id="custom-pinmap-array">Custom PinMap array</h2>
+<p>Each variant provides a <code>PeripheralPins.c</code> including <code>PinMap</code> arrays for STM32 peripherals such as <code>ADC</code>, <code>I2C</code>, <code>SPI</code>, <code>TIM</code>, <code>U(S)ART</code>, and <code>USB</code>.</p>
+<p>A pin can be used with several peripheral instances. A dedicated project may not need all of those possibilities, and every entry consumes flash. Because these arrays are defined as <code>WEAK</code>, they can be replaced at sketch level to keep only the required entries. Replacing an array removes all entries that are not copied into the replacement.</p>
+<h4 id="example-for-the-adc-pinmap-of-the-nucleo_f103rb">Example for the <a href="https://github.com/stm32duino/Arduino_Core_STM32/blob/main/variants/STM32F1xx/F103R(8-B)H/PeripheralPins.c#L35-L68">ADC PinMap</a> of the NUCLEO_F103RB</h4>
+<div class="highlight"><pre><span></span><code><span class="cp">#ifdef HAL_ADC_MODULE_ENABLED</span>
+<span class="n">WEAK</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">PinMap</span><span class="w"> </span><span class="n">PinMap_ADC</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="p">{</span><span class="n">PA_0</span><span class="p">,</span><span class="w">      </span><span class="n">ADC1</span><span class="p">,</span><span class="w"> </span><span class="n">STM_PIN_DATA_EXT</span><span class="p">(</span><span class="n">STM_MODE_ANALOG</span><span class="p">,</span><span class="w"> </span><span class="n">LL_GPIO_PULL_NO</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)},</span><span class="w"> </span><span class="c1">// ADC1_IN0</span>
+<span class="w">  </span><span class="p">{</span><span class="n">PA_0_ALT1</span><span class="p">,</span><span class="w"> </span><span class="n">ADC2</span><span class="p">,</span><span class="w"> </span><span class="n">STM_PIN_DATA_EXT</span><span class="p">(</span><span class="n">STM_MODE_ANALOG</span><span class="p">,</span><span class="w"> </span><span class="n">LL_GPIO_PULL_NO</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)},</span><span class="w"> </span><span class="c1">// ADC2_IN0</span>
+<span class="w">  </span><span class="p">{</span><span class="n">PA_1</span><span class="p">,</span><span class="w">      </span><span class="n">ADC1</span><span class="p">,</span><span class="w"> </span><span class="n">STM_PIN_DATA_EXT</span><span class="p">(</span><span class="n">STM_MODE_ANALOG</span><span class="p">,</span><span class="w"> </span><span class="n">LL_GPIO_PULL_NO</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)},</span><span class="w"> </span><span class="c1">// ADC1_IN1</span>
+<span class="w">  </span><span class="p">{</span><span class="n">PA_1_ALT1</span><span class="p">,</span><span class="w"> </span><span class="n">ADC2</span><span class="p">,</span><span class="w"> </span><span class="n">STM_PIN_DATA_EXT</span><span class="p">(</span><span class="n">STM_MODE_ANALOG</span><span class="p">,</span><span class="w"> </span><span class="n">LL_GPIO_PULL_NO</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)},</span><span class="w"> </span><span class="c1">// ADC2_IN1</span>
+<span class="w">  </span><span class="p">{</span><span class="n">PA_2</span><span class="p">,</span><span class="w">      </span><span class="n">ADC1</span><span class="p">,</span><span class="w"> </span><span class="n">STM_PIN_DATA_EXT</span><span class="p">(</span><span class="n">STM_MODE_ANALOG</span><span class="p">,</span><span class="w"> </span><span class="n">LL_GPIO_PULL_NO</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)},</span><span class="w"> </span><span class="c1">// ADC1_IN2</span>
+<span class="w">  </span><span class="p">{</span><span class="n">PA_2_ALT1</span><span class="p">,</span><span class="w"> </span><span class="n">ADC2</span><span class="p">,</span><span class="w"> </span><span class="n">STM_PIN_DATA_EXT</span><span class="p">(</span><span class="n">STM_MODE_ANALOG</span><span class="p">,</span><span class="w"> </span><span class="n">LL_GPIO_PULL_NO</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)},</span><span class="w"> </span><span class="c1">// ADC2_IN2</span>
+<span class="w">  </span><span class="p">{</span><span class="n">PA_3</span><span class="p">,</span><span class="w">      </span><span class="n">ADC1</span><span class="p">,</span><span class="w"> </span><span class="n">STM_PIN_DATA_EXT</span><span class="p">(</span><span class="n">STM_MODE_ANALOG</span><span class="p">,</span><span class="w"> </span><span class="n">LL_GPIO_PULL_NO</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)},</span><span class="w"> </span><span class="c1">// ADC1_IN3</span>
+<span class="w">  </span><span class="p">{</span><span class="n">PA_3_ALT1</span><span class="p">,</span><span class="w"> </span><span class="n">ADC2</span><span class="p">,</span><span class="w"> </span><span class="n">STM_PIN_DATA_EXT</span><span class="p">(</span><span class="n">STM_MODE_ANALOG</span><span class="p">,</span><span class="w"> </span><span class="n">LL_GPIO_PULL_NO</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)},</span><span class="w"> </span><span class="c1">// ADC2_IN3</span>
+<span class="w">  </span><span class="p">{</span><span class="n">PA_4</span><span class="p">,</span><span class="w">      </span><span class="n">ADC1</span><span class="p">,</span><span class="w"> </span><span class="n">STM_PIN_DATA_EXT</span><span class="p">(</span><span class="n">STM_MODE_ANALOG</span><span class="p">,</span><span class="w"> </span><span class="n">LL_GPIO_PULL_NO</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)},</span><span class="w"> </span><span class="c1">// ADC1_IN4</span>
+<span class="w">  </span><span class="p">{</span><span class="n">PA_4_ALT1</span><span class="p">,</span><span class="w"> </span><span class="n">ADC2</span><span class="p">,</span><span class="w"> </span><span class="n">STM_PIN_DATA_EXT</span><span class="p">(</span><span class="n">STM_MODE_ANALOG</span><span class="p">,</span><span class="w"> </span><span class="n">LL_GPIO_PULL_NO</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)},</span><span class="w"> </span><span class="c1">// ADC2_IN4</span>
+<span class="w">  </span><span class="p">{</span><span class="n">PA_5</span><span class="p">,</span><span class="w">      </span><span class="n">ADC1</span><span class="p">,</span><span class="w"> </span><span class="n">STM_PIN_DATA_EXT</span><span class="p">(</span><span class="n">STM_MODE_ANALOG</span><span class="p">,</span><span class="w"> </span><span class="n">LL_GPIO_PULL_NO</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)},</span><span class="w"> </span><span class="c1">// ADC1_IN5</span>
+<span class="w">  </span><span class="p">{</span><span class="n">PA_5_ALT1</span><span class="p">,</span><span class="w"> </span><span class="n">ADC2</span><span class="p">,</span><span class="w"> </span><span class="n">STM_PIN_DATA_EXT</span><span class="p">(</span><span class="n">STM_MODE_ANALOG</span><span class="p">,</span><span class="w"> </span><span class="n">LL_GPIO_PULL_NO</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)},</span><span class="w"> </span><span class="c1">// ADC2_IN5</span>
+<span class="w">  </span><span class="p">{</span><span class="n">PA_6</span><span class="p">,</span><span class="w">      </span><span class="n">ADC1</span><span class="p">,</span><span class="w"> </span><span class="n">STM_PIN_DATA_EXT</span><span class="p">(</span><span class="n">STM_MODE_ANALOG</span><span class="p">,</span><span class="w"> </span><span class="n">LL_GPIO_PULL_NO</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)},</span><span class="w"> </span><span class="c1">// ADC1_IN6</span>
+<span class="w">  </span><span class="p">{</span><span class="n">PA_6_ALT1</span><span class="p">,</span><span class="w"> </span><span class="n">ADC2</span><span class="p">,</span><span class="w"> </span><span class="n">STM_PIN_DATA_EXT</span><span class="p">(</span><span class="n">STM_MODE_ANALOG</span><span class="p">,</span><span class="w"> </span><span class="n">LL_GPIO_PULL_NO</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)},</span><span class="w"> </span><span class="c1">// ADC2_IN6</span>
+<span class="w">  </span><span class="p">{</span><span class="n">PA_7</span><span class="p">,</span><span class="w">      </span><span class="n">ADC1</span><span class="p">,</span><span class="w"> </span><span class="n">STM_PIN_DATA_EXT</span><span class="p">(</span><span class="n">STM_MODE_ANALOG</span><span class="p">,</span><span class="w"> </span><span class="n">LL_GPIO_PULL_NO</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)},</span><span class="w"> </span><span class="c1">// ADC1_IN7</span>
+<span class="w">  </span><span class="p">{</span><span class="n">PA_7_ALT1</span><span class="p">,</span><span class="w"> </span><span class="n">ADC2</span><span class="p">,</span><span class="w"> </span><span class="n">STM_PIN_DATA_EXT</span><span class="p">(</span><span class="n">STM_MODE_ANALOG</span><span class="p">,</span><span class="w"> </span><span class="n">LL_GPIO_PULL_NO</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)},</span><span class="w"> </span><span class="c1">// ADC2_IN7</span>
+<span class="w">  </span><span class="p">{</span><span class="n">PB_0</span><span class="p">,</span><span class="w">      </span><span class="n">ADC1</span><span class="p">,</span><span class="w"> </span><span class="n">STM_PIN_DATA_EXT</span><span class="p">(</span><span class="n">STM_MODE_ANALOG</span><span class="p">,</span><span class="w"> </span><span class="n">LL_GPIO_PULL_NO</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)},</span><span class="w"> </span><span class="c1">// ADC1_IN8</span>
+<span class="w">  </span><span class="p">{</span><span class="n">PB_0_ALT1</span><span class="p">,</span><span class="w"> </span><span class="n">ADC2</span><span class="p">,</span><span class="w"> </span><span class="n">STM_PIN_DATA_EXT</span><span class="p">(</span><span class="n">STM_MODE_ANALOG</span><span class="p">,</span><span class="w"> </span><span class="n">LL_GPIO_PULL_NO</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)},</span><span class="w"> </span><span class="c1">// ADC2_IN8</span>
+<span class="w">  </span><span class="p">{</span><span class="n">PB_1</span><span class="p">,</span><span class="w">      </span><span class="n">ADC1</span><span class="p">,</span><span class="w"> </span><span class="n">STM_PIN_DATA_EXT</span><span class="p">(</span><span class="n">STM_MODE_ANALOG</span><span class="p">,</span><span class="w"> </span><span class="n">LL_GPIO_PULL_NO</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)},</span><span class="w"> </span><span class="c1">// ADC1_IN9</span>
+<span class="w">  </span><span class="p">{</span><span class="n">PB_1_ALT1</span><span class="p">,</span><span class="w"> </span><span class="n">ADC2</span><span class="p">,</span><span class="w"> </span><span class="n">STM_PIN_DATA_EXT</span><span class="p">(</span><span class="n">STM_MODE_ANALOG</span><span class="p">,</span><span class="w"> </span><span class="n">LL_GPIO_PULL_NO</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)},</span><span class="w"> </span><span class="c1">// ADC2_IN9</span>
+<span class="w">  </span><span class="p">{</span><span class="n">PC_0</span><span class="p">,</span><span class="w">      </span><span class="n">ADC1</span><span class="p">,</span><span class="w"> </span><span class="n">STM_PIN_DATA_EXT</span><span class="p">(</span><span class="n">STM_MODE_ANALOG</span><span class="p">,</span><span class="w"> </span><span class="n">LL_GPIO_PULL_NO</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)},</span><span class="w"> </span><span class="c1">// ADC1_IN10</span>
+<span class="w">  </span><span class="p">{</span><span class="n">PC_0_ALT1</span><span class="p">,</span><span class="w"> </span><span class="n">ADC2</span><span class="p">,</span><span class="w"> </span><span class="n">STM_PIN_DATA_EXT</span><span class="p">(</span><span class="n">STM_MODE_ANALOG</span><span class="p">,</span><span class="w"> </span><span class="n">LL_GPIO_PULL_NO</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)},</span><span class="w"> </span><span class="c1">// ADC2_IN10</span>
+<span class="w">  </span><span class="p">{</span><span class="n">PC_1</span><span class="p">,</span><span class="w">      </span><span class="n">ADC1</span><span class="p">,</span><span class="w"> </span><span class="n">STM_PIN_DATA_EXT</span><span class="p">(</span><span class="n">STM_MODE_ANALOG</span><span class="p">,</span><span class="w"> </span><span class="n">LL_GPIO_PULL_NO</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)},</span><span class="w"> </span><span class="c1">// ADC1_IN11</span>
+<span class="w">  </span><span class="p">{</span><span class="n">PC_1_ALT1</span><span class="p">,</span><span class="w"> </span><span class="n">ADC2</span><span class="p">,</span><span class="w"> </span><span class="n">STM_PIN_DATA_EXT</span><span class="p">(</span><span class="n">STM_MODE_ANALOG</span><span class="p">,</span><span class="w"> </span><span class="n">LL_GPIO_PULL_NO</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)},</span><span class="w"> </span><span class="c1">// ADC2_IN11</span>
+<span class="w">  </span><span class="p">{</span><span class="n">PC_2</span><span class="p">,</span><span class="w">      </span><span class="n">ADC1</span><span class="p">,</span><span class="w"> </span><span class="n">STM_PIN_DATA_EXT</span><span class="p">(</span><span class="n">STM_MODE_ANALOG</span><span class="p">,</span><span class="w"> </span><span class="n">LL_GPIO_PULL_NO</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)},</span><span class="w"> </span><span class="c1">// ADC1_IN12</span>
+<span class="w">  </span><span class="p">{</span><span class="n">PC_2_ALT1</span><span class="p">,</span><span class="w"> </span><span class="n">ADC2</span><span class="p">,</span><span class="w"> </span><span class="n">STM_PIN_DATA_EXT</span><span class="p">(</span><span class="n">STM_MODE_ANALOG</span><span class="p">,</span><span class="w"> </span><span class="n">LL_GPIO_PULL_NO</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)},</span><span class="w"> </span><span class="c1">// ADC2_IN12</span>
+<span class="w">  </span><span class="p">{</span><span class="n">PC_4</span><span class="p">,</span><span class="w">      </span><span class="n">ADC1</span><span class="p">,</span><span class="w"> </span><span class="n">STM_PIN_DATA_EXT</span><span class="p">(</span><span class="n">STM_MODE_ANALOG</span><span class="p">,</span><span class="w"> </span><span class="n">LL_GPIO_PULL_NO</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)},</span><span class="w"> </span><span class="c1">// ADC1_IN14</span>
+<span class="w">  </span><span class="p">{</span><span class="n">PC_4_ALT1</span><span class="p">,</span><span class="w"> </span><span class="n">ADC2</span><span class="p">,</span><span class="w"> </span><span class="n">STM_PIN_DATA_EXT</span><span class="p">(</span><span class="n">STM_MODE_ANALOG</span><span class="p">,</span><span class="w"> </span><span class="n">LL_GPIO_PULL_NO</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)},</span><span class="w"> </span><span class="c1">// ADC2_IN14</span>
+<span class="w">  </span><span class="p">{</span><span class="n">PC_5</span><span class="p">,</span><span class="w">      </span><span class="n">ADC1</span><span class="p">,</span><span class="w"> </span><span class="n">STM_PIN_DATA_EXT</span><span class="p">(</span><span class="n">STM_MODE_ANALOG</span><span class="p">,</span><span class="w"> </span><span class="n">LL_GPIO_PULL_NO</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)},</span><span class="w"> </span><span class="c1">// ADC1_IN15</span>
+<span class="w">  </span><span class="p">{</span><span class="n">PC_5_ALT1</span><span class="p">,</span><span class="w"> </span><span class="n">ADC2</span><span class="p">,</span><span class="w"> </span><span class="n">STM_PIN_DATA_EXT</span><span class="p">(</span><span class="n">STM_MODE_ANALOG</span><span class="p">,</span><span class="w"> </span><span class="n">LL_GPIO_PULL_NO</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)},</span><span class="w"> </span><span class="c1">// ADC2_IN15</span>
+<span class="w">  </span><span class="p">{</span><span class="n">NC</span><span class="p">,</span><span class="w">        </span><span class="n">NP</span><span class="p">,</span><span class="w">   </span><span class="mi">0</span><span class="p">}</span>
+<span class="p">};</span>
+<span class="cp">#endif</span>
+</code></pre></div>
+<p>The project uses only <code>PA_0</code> and <code>PA_1</code> for ADC, and requires <code>PA_0</code> to use <code>ADC2</code>.</p>
+<p>It can therefore be redefined at sketch level to define only those pins, saving approximately 360 bytes in this example:
+<div class="highlight"><pre><span></span><code><span class="k">const</span><span class="w"> </span><span class="n">PinMap</span><span class="w"> </span><span class="n">PinMap_ADC</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="p">{</span><span class="n">PA_0</span><span class="p">,</span><span class="w">      </span><span class="n">ADC2</span><span class="p">,</span><span class="w"> </span><span class="n">STM_PIN_DATA_EXT</span><span class="p">(</span><span class="n">STM_MODE_ANALOG</span><span class="p">,</span><span class="w"> </span><span class="n">LL_GPIO_PULL_NO</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)},</span><span class="w"> </span><span class="c1">// ADC2_IN0</span>
+<span class="w">  </span><span class="p">{</span><span class="n">PA_1</span><span class="p">,</span><span class="w">      </span><span class="n">ADC1</span><span class="p">,</span><span class="w"> </span><span class="n">STM_PIN_DATA_EXT</span><span class="p">(</span><span class="n">STM_MODE_ANALOG</span><span class="p">,</span><span class="w"> </span><span class="n">LL_GPIO_PULL_NO</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)},</span><span class="w"> </span><span class="c1">// ADC1_IN1</span>
+<span class="w">  </span><span class="p">{</span><span class="n">NC</span><span class="p">,</span><span class="w">    </span><span class="n">NP</span><span class="p">,</span><span class="w">    </span><span class="mi">0</span><span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></p>
+<h2 id="i2c-timing">I2C Timing</h2>
+<p>Some STM32 series require to compute I2C timing value for the <code>TIMINGR</code> register depending of the specific I2C clock source configuration to ensure correct I2C speed.</p>
+<p>Calculating all timing values can take a significant amount of time. By default, only the first <strong>8</strong> valid timings are computed:
+<div class="highlight"><pre><span></span><code><span class="cp">#ifndef I2C_VALID_TIMING_NBR</span>
+<span class="cp">#define I2C_VALID_TIMING_NBR          8U</span>
+<span class="cp">#endif</span>
+</code></pre></div></p>
+<p>It can be redefined in <code>variant.h</code>, <code>build_opt.h</code>, or <code>hal_conf_extra.h</code>.</p>
+<h4 id="example-to-compute-64-valid-timing-values">Example to compute 64 valid timing values</h4>
+<p>Using <code>build_opt.h</code>:
+<div class="highlight"><pre><span></span><code><span class="o">-</span><span class="n">DI2C_VALID_TIMING_NBR</span><span class="o">=</span><span class="mi">64</span>
+</code></pre></div></p>
+<p>Using <code>variant.h</code> or <code>hal_conf_extra.h</code>:
+<div class="highlight"><pre><span></span><code><span class="cp">#define I2C_VALID_TIMING_NBR 64</span>
+</code></pre></div></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>A higher number can reduce the clock error, but requires more computation time depending on the board.</p>
+</div>
+<p>Moreover, to avoid time spent to compute the I2C timing, it can be defined in the <code>variant.h</code> or <code>build_opt.h</code> or <code>hal_conf_extra.h</code> with:</p>
+<ul>
+<li><code>I2C_TIMING_SM</code> for Standard Mode (100kHz)</li>
+<li><code>I2C_TIMING_FM</code> for Fast Mode (400kHz)</li>
+<li><code>I2C_TIMING_FMP</code> for Fast Mode Plus (1000kHz)</li>
+</ul>
+<h4 id="example-for-an-stm32f0xx-using-the-hsi-clock-as-the-i2c-clock-source-in-varianth">Example for an <strong>STM32F0xx</strong> using the <code>HSI</code> clock as the I2C clock source, in <code>variant.h</code>:</h4>
+<div class="highlight"><pre><span></span><code><span class="cp">#define I2C_TIMING_SM           0x00201D2B</span>
+<span class="cp">#define I2C_TIMING_FM           0x0010020A</span>
+</code></pre></div>
+<h2 id="i2c-timeout-in-tick-unit">I2C timeout in tick unit</h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Available since core version 1.9.0.</p>
+</div>
+<p>I2C timeout in tick unit can be redefined. Default: <strong>100</strong></p>
+<div class="highlight"><pre><span></span><code><span class="cp">#ifndef I2C_TIMEOUT_TICK</span>
+<span class="cp">#define I2C_TIMEOUT_TICK        100</span>
+<span class="cp">#endif</span>
+</code></pre></div>
+<p>It can be redefined in <code>variant.h</code>, <code>build_opt.h</code>, or <code>hal_conf_extra.h</code>.</p>
+<h4 id="example-to-decrease-or-increase-the-i2c-timeout-in-ticks">Example to decrease or increase the I2C timeout in ticks</h4>
+<ul>
+<li>Using <code>build_opt.h</code>:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="go">-DI2C_TIMEOUT_TICK=50</span>
+</code></pre></div>
+<ul>
+<li>Using <code>variant.h</code> or <code>hal_conf_extra.h</code>:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="cp">#define I2C_TIMEOUT_TICK 120</span>
+</code></pre></div>
+<h2 id="f_cpu">F_CPU</h2>
+<p>To avoid any issue with <code>F_CPU</code> value, it is defined by default to <code>SystemCoreClock</code> value which is updated automatically after each clock configuration update.</p>
+<p>Some libraries use <code>F_CPU</code> at build time for conditional purpose (example <a href="https://github.com/stm32duino/Arduino_Core_STM32/issues/612">issue #612</a>).</p>
+<p><code>F_CPU</code> can be redefined at build time using <code>build_opt.h</code> or <code>hal_conf_extra.h</code> then it will be possible to define it as a constant.</p>
+<p>For example, in <code>build_opt.h</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="go">-DF_CPU=8000000</span>
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Important</p>
+<p>The user must set <code>F_CPU</code> to the actual compile-time frequency expected by the library. An incorrect value can cause timing or peripheral configuration errors.</p>
+</div>
+<h2 id="serial-rxtx-buffer-size">Serial Rx/Tx buffer size</h2>
+<p>By default, Serial Rx/Tx buffer sizes are defined like this:</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#if !defined(SERIAL_TX_BUFFER_SIZE)</span>
+<span class="cp">#define SERIAL_TX_BUFFER_SIZE 64</span>
+<span class="cp">#endif</span>
+<span class="cp">#if !defined(SERIAL_RX_BUFFER_SIZE)</span>
+<span class="cp">#define SERIAL_RX_BUFFER_SIZE 64</span>
+<span class="cp">#endif</span>
+</code></pre></div>
+<p>Each size can be redefined at build time using <code>build_opt.h</code> or <code>hal_conf_extra.h</code>. Larger buffers improve burst handling but consume RAM.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>A "<em>power of 2</em>" buffer size is recommended to dramatically optimize all the modulo operations for ring buffers.</p>
+</div>
+<h4 id="example-using-build_opth">Example using <code>build_opt.h</code>:</h4>
+<div class="highlight"><pre><span></span><code><span class="o">-</span><span class="n">DSERIAL_RX_BUFFER_SIZE</span><span class="o">=</span><span class="mi">256</span><span class="w"> </span><span class="o">-</span><span class="n">DSERIAL_TX_BUFFER_SIZE</span><span class="o">=</span><span class="mi">256</span>
+</code></pre></div>
+<h2 id="systemclock_config">SystemClock_Config</h2>
+<p>Each variant defines a default system clock configuration. The user can replace it at sketch level, for example to change the clock source or reduce the frequency. An incorrect clock configuration can affect USB, serial timing, timers, and delay functions.</p>
+<p>Prefix the replacement function with <code>extern "C"</code> in an <code>.ino</code> or <code>.cpp</code> file:</p>
+<div class="highlight"><pre><span></span><code><span class="k">extern</span><span class="w"> </span><span class="s">"C"</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">SystemClock_Config</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// new clock config</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="enable-ucpd-dead-battery-behavior">Enable UCPD dead battery behavior</h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Available with STM32 core version higher than 2.9.0.</p>
+</div>
+<p>By default, UCPD dead battery behavior is disabled after reset.
+Following a user request to preserve this behavior, you can use this definition
+to avoid disabling it:</p>
+<p><code>SKIP_DISABLING_UCPD_DEAD_BATTERY</code></p>
+<p>It can be defined in <code>variant.h</code>, <code>build_opt.h</code>, or <code>hal_conf_extra.h</code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Enabling this behavior is the user's responsibility.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="../../supported-boards/supported-boards.js"></script>
+      
+    
+  </body>
+</html>

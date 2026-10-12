@@ -1,0 +1,4043 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for the STM32duino Arduino core and ecosystem">
+      
+      
+      
+        <link rel="canonical" href="https://stm32duino.github.io/dev/API/">
+      
+      
+        <link rel="prev" href="../supported-boards/">
+      
+      
+        <link rel="next" href="../HardwareTimer-library/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
+    
+    
+      
+        <title>Arduino API - STM32duino</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.84d31ad4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../inline-code.css">
+    
+      <link rel="stylesheet" href="../supported-boards/supported-boards.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#api" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="STM32duino" class="md-header__button md-logo" aria-label="STM32duino" data-md-component="logo">
+      
+  <img src="../img/stm32duino.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            STM32duino
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Arduino API
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/stm32duino/Arduino_Core_STM32" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    stm32duino/Arduino_Core_STM32
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="STM32duino" class="md-nav__button md-logo" aria-label="STM32duino" data-md-component="logo">
+      
+  <img src="../img/stm32duino.png" alt="logo">
+
+    </a>
+    STM32duino
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/stm32duino/Arduino_Core_STM32" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    stm32duino/Arduino_Core_STM32
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Getting-Started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Arduino IDE 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Getting-Started_V1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Legacy IDE 1.8.x
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Upload-methods/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Upload Methods
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Examples
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Examples
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/Examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/Blink-example/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Blink
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../FAQ/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    FAQ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../supported-boards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Supported Boards
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Core Reference
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Core Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Arduino API
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Arduino API
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#core" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core version
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core version">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#core-callback" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Callback
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stm32-extensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      STM32 extensions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="STM32 extensions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#analog" class="md-nav__link">
+    <span class="md-ellipsis">
+      Analog
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Analog">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#analogwrite-dac-pwm-or-gpio" class="md-nav__link">
+    <span class="md-ellipsis">
+      analogWrite: DAC, PWM or GPIO
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frequency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Frequency
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Frequency">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dac-output-buffer" class="md-nav__link">
+    <span class="md-ellipsis">
+      DAC output buffer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adc-general" class="md-nav__link">
+    <span class="md-ellipsis">
+      ADC general
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adc-internal-channels" class="md-nav__link">
+    <span class="md-ellipsis">
+      ADC internal channels
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adc-read-resolution-bits" class="md-nav__link">
+    <span class="md-ellipsis">
+      ADC read resolution (bits)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adc-sampling-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      ADC sampling time
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ADC sampling time">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hardwareserial" class="md-nav__link">
+    <span class="md-ellipsis">
+      HardwareSerial
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="HardwareSerial">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#new-api-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      New API functions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="New API functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#change-default-serial-instance-pins" class="md-nav__link">
+    <span class="md-ellipsis">
+      Change default Serial instance pins
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Change default Serial instance pins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enable-half-duplex-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enable half-duplex mode
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Enable half-duplex mode">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-for-a-nucleo-l496zg-p" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example for a Nucleo L496ZG-P:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enable-hardware-flow-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enable hardware flow control
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Enable hardware flow control">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enable-tx-rx-pin-active-level-andor-data-inversion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enable Tx, Rx Pin Active Level and/or Data Inversion
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hardwaretimer-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      HardwareTimer library
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#built-in-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Built-in libraries
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Built-in libraries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#spi" class="md-nav__link">
+    <span class="md-ellipsis">
+      SPI
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SPI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#new-spisetting-parameter" class="md-nav__link">
+    <span class="md-ellipsis">
+      New SPISetting parameter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#new-api-functions_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      New API functions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="New API functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#change-default-spi-instance-pins" class="md-nav__link">
+    <span class="md-ellipsis">
+      Change default SPI instance pins
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Change default SPI instance pins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i2c" class="md-nav__link">
+    <span class="md-ellipsis">
+      I2C
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="I2C">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#default-i2c-pins" class="md-nav__link">
+    <span class="md-ellipsis">
+      Default I2C pins
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Default I2C pins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-for-nucleo-l452re-in-file-peripheralpinsc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example (for Nucleo-L452RE in file PeripheralPins.c):
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#redefine-i2c-pins" class="md-nav__link">
+    <span class="md-ellipsis">
+      Redefine I2C pins
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Redefine I2C pins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-inside-of-sketch-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example (inside of sketch file):
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#new-api-functions_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      New API functions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="New API functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#change-default-wire-instance-pins" class="md-nav__link">
+    <span class="md-ellipsis">
+      Change default Wire instance pins
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Change default Wire instance pins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enable-general-call-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enable general call mode
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Enable general call mode">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i2c-buffer-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      I2C buffer management
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cmsis-dsp" class="md-nav__link">
+    <span class="md-ellipsis">
+      CMSIS-DSP
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eeprom-emulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      EEPROM emulation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#servo-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      Servo library
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Other">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#remembering-variables-across-resets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remembering variables across resets
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HardwareTimer-library/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hardware Timer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Pin-naming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pin Naming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../STM32MP1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    STM32MP1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Libraries
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Libraries
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../libraries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Built-in
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Built-in
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../libraries/built-in/Servo-library/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Servo
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Dedicated
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            Dedicated
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../libraries/dedicated/HTS221/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HTS221
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../libraries/dedicated/LPS22HB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LPS22HB
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../libraries/dedicated/LIS3MDL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LIS3MDL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../libraries/dedicated/LSM6DSL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LSM6DSL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../libraries/dedicated/M24SR64-Y/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    M24SR64-Y
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../libraries/dedicated/MX25R6435F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MX25R6435F
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../libraries/dedicated/SPBTLE-RF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SPBTLE-RF
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../libraries/dedicated/STM32Ethernet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    STM32Ethernet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../libraries/dedicated/VL53L0X/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    VL53L0X
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Connectivity
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            Connectivity
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../libraries/LoRa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LoRa
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../libraries/STM32duinoBLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    STM32duinoBLE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Hosted library documentation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_5">
+            <span class="md-nav__icon md-icon"></span>
+            Hosted library documentation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../libraries/Hosted-library-documentation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Library documentation index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://stm32duino.github.io/STM32LoRaWAN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    STM32LoRaWAN
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Development
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Development
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/Contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Contributing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/Using-git-repository/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Using the Git Repository
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/Where-are-sources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Source Locations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/Astyle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Code Style
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_5" id="__nav_6_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Add a Board Variant
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_5">
+            <span class="md-nav__icon md-icon"></span>
+            Add a Board Variant
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/Add-a-new-variant/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/Add-a-new-variant/generic-variant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Generic Variant
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/Add-a-new-variant/dedicated-board/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Dedicated Board
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_6" id="__nav_6_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    CMake
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_6">
+            <span class="md-nav__icon md-icon"></span>
+            CMake
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cmake/Introduction-to-CMake/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cmake/STM32duino-CMake-Build-System/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    STM32duino CMake Build System
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cmake/Setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cmake/Quickstart-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Quickstart
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cmake/Advanced-usage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Advanced Usage
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cmake/Functions-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Functions Reference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cmake/Arduino-%28in%29compatibility/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Arduino Compatibility
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cmake/cubeIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CubeIDE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_7" id="__nav_6_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Customization
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_7">
+            <span class="md-nav__icon md-icon"></span>
+            Customization
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../customization/Custom-definitions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Custom Definitions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../customization/Custom-board-based-on-a-core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Custom Boards
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../customization/Customize-build-options-using-build_opt.h/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Build Options
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../customization/HAL-configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HAL Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_8" id="__nav_6_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    IDE
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_8">
+            <span class="md-nav__icon md-icon"></span>
+            IDE
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/ide/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/ide/PlatformIO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PlatformIO
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_9" id="__nav_6_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    How to Debug
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_9">
+            <span class="md-nav__icon md-icon"></span>
+            How to Debug
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/debug/How-to-debug/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Arduino IDE 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/debug/eclipse-sloeber/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Eclipse and Sloeber
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/debug/platformio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PlatformIO
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/debug/visualgdb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Visual Studio and VisualGDB
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/debug/cubeclt-cortex-debug/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    STM32CubeCLT and cortex-debug
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/debug/command-line-gdb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Command Line GDB
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/debug/troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/Documentation-workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Documentation Workflow
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#core" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core version
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core version">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#core-callback" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Callback
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stm32-extensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      STM32 extensions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="STM32 extensions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#analog" class="md-nav__link">
+    <span class="md-ellipsis">
+      Analog
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Analog">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#analogwrite-dac-pwm-or-gpio" class="md-nav__link">
+    <span class="md-ellipsis">
+      analogWrite: DAC, PWM or GPIO
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frequency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Frequency
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Frequency">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dac-output-buffer" class="md-nav__link">
+    <span class="md-ellipsis">
+      DAC output buffer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adc-general" class="md-nav__link">
+    <span class="md-ellipsis">
+      ADC general
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adc-internal-channels" class="md-nav__link">
+    <span class="md-ellipsis">
+      ADC internal channels
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adc-read-resolution-bits" class="md-nav__link">
+    <span class="md-ellipsis">
+      ADC read resolution (bits)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adc-sampling-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      ADC sampling time
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ADC sampling time">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hardwareserial" class="md-nav__link">
+    <span class="md-ellipsis">
+      HardwareSerial
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="HardwareSerial">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#new-api-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      New API functions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="New API functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#change-default-serial-instance-pins" class="md-nav__link">
+    <span class="md-ellipsis">
+      Change default Serial instance pins
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Change default Serial instance pins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enable-half-duplex-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enable half-duplex mode
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Enable half-duplex mode">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-for-a-nucleo-l496zg-p" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example for a Nucleo L496ZG-P:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enable-hardware-flow-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enable hardware flow control
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Enable hardware flow control">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enable-tx-rx-pin-active-level-andor-data-inversion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enable Tx, Rx Pin Active Level and/or Data Inversion
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hardwaretimer-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      HardwareTimer library
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#built-in-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Built-in libraries
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Built-in libraries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#spi" class="md-nav__link">
+    <span class="md-ellipsis">
+      SPI
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SPI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#new-spisetting-parameter" class="md-nav__link">
+    <span class="md-ellipsis">
+      New SPISetting parameter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#new-api-functions_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      New API functions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="New API functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#change-default-spi-instance-pins" class="md-nav__link">
+    <span class="md-ellipsis">
+      Change default SPI instance pins
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Change default SPI instance pins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i2c" class="md-nav__link">
+    <span class="md-ellipsis">
+      I2C
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="I2C">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#default-i2c-pins" class="md-nav__link">
+    <span class="md-ellipsis">
+      Default I2C pins
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Default I2C pins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-for-nucleo-l452re-in-file-peripheralpinsc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example (for Nucleo-L452RE in file PeripheralPins.c):
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#redefine-i2c-pins" class="md-nav__link">
+    <span class="md-ellipsis">
+      Redefine I2C pins
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Redefine I2C pins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-inside-of-sketch-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example (inside of sketch file):
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#new-api-functions_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      New API functions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="New API functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#change-default-wire-instance-pins" class="md-nav__link">
+    <span class="md-ellipsis">
+      Change default Wire instance pins
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Change default Wire instance pins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enable-general-call-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enable general call mode
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Enable general call mode">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i2c-buffer-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      I2C buffer management
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cmsis-dsp" class="md-nav__link">
+    <span class="md-ellipsis">
+      CMSIS-DSP
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eeprom-emulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      EEPROM emulation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#servo-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      Servo library
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Other">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#remembering-variables-across-resets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remembering variables across resets
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="api">API</h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Since core release <strong>3.0.0</strong>, the STM32 Arduino core is based on the official <a href="https://github.com/arduino/ArduinoCore-API">ArduinoCore-API</a>. It provides the standard Arduino API contracts, types, and interfaces used by the core, while STM32-specific extensions remain available. See the <a href="https://github.com/stm32duino/ArduinoCore-API">STM32 ArduinoCore-API integration</a> for implementation details.</p>
+</div>
+<p>This page documents STM32-specific additions and extensions. For the standard Arduino API, see the <a href="https://docs.arduino.cc/language-reference/">Arduino language reference</a> and the <a href="https://github.com/arduino/ArduinoCore-API">ArduinoCore-API documentation</a>.</p>
+<h2 id="core">Core</h2>
+<p>This part describes the STM32 core functions.</p>
+<h3 id="core-version">Core version</h3>
+<p>The core version API was introduced in version <strong>1.5.0</strong> and follows <a href="https://semver.org/">Semantic Versioning 2.0.0</a>.</p>
+<p>The version is defined in <a href="https://github.com/stm32duino/Arduino_Core_STM32/blob/main/cores/arduino/stm32/stm32_def.h"><code>stm32_def.h</code></a>.</p>
+<p><code>STM32_CORE_VERSION</code> defines the core version with:</p>
+<ul>
+<li><code>STM32_CORE_VERSION_MAJOR</code>: major version [31:24]</li>
+<li><code>STM32_CORE_VERSION_MINOR</code>: minor version [23:16]</li>
+<li><code>STM32_CORE_VERSION_PATCH</code>: patch version [15:8]</li>
+<li><code>STM32_CORE_VERSION_EXTRA</code>: Extra label [7:0], with:<ul>
+<li><code>0</code>: official release</li>
+<li><code>[1-9]</code>: release candidate</li>
+<li><code>F[0-9]</code>: development</li>
+</ul>
+</li>
+</ul>
+<h4 id="example">Example</h4>
+<div class="highlight"><pre><span></span><code><span class="cp">#if !defined(STM32_CORE_VERSION) || (STM32_CORE_VERSION  &lt;= 0x01050000)</span>
+<span class="cm">/* Do something for core version lesser than or equal to 1.5.0 */</span>
+<span class="cp">#else</span>
+<span class="cm">/* Do something for core version greater than 1.5.0 */</span>
+<span class="cp">#endif</span>
+</code></pre></div>
+<h3 id="core-callback">Core Callback</h3>
+<p>CoreCallback functions allows to register a callback function called in the loop of the <code>main()</code> function.
+If you need to call as often as possible a function to update your system and you want to be sure this function to be called, you can add it to the callback list. Otherwise, your function should be called inside the <code>loop()</code> function of
+the sketch.</p>
+<ul>
+<li>
+<p><code>void registerCoreCallback(void (*func)(void))</code>: register a callback function
+<em>Params</em> <code>func</code> pointer to the callback function</p>
+</li>
+<li>
+<p><code>void unregisterCoreCallback(void (*func)(void))</code>: unregister a callback function
+<em>Params</em> <code>func</code> pointer to the callback function</p>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>By default, the core callback feature is disabled, to enable it <code>CORE_CALLBACK</code> must be defined.</p>
+</div>
+<p><a href="../customization/Customize-build-options-using-build_opt.h/"><code>build_opt.h</code></a> can be used to define it by adding <code>-DCORE_CALLBACK</code>.</p>
+<h2 id="stm32-extensions">STM32 extensions</h2>
+<h3 id="analog">Analog</h3>
+<h4 id="analogwrite-dac-pwm-or-gpio">analogWrite: DAC, PWM or GPIO</h4>
+<p><code>analogWrite()</code> function follows the <a href="https://www.arduino.cc/reference/en/language/functions/analog-io/analogwrite/">API reference</a>.
+As each pin has not the same capabilities, it uses the best way:</p>
+<ol>
+<li>True analog output when using pins with DAC capabilities if <code>HAL_DAC_MODULE_ENABLED</code> is defined</li>
+<li>PWM on pins with timer (TIM) capabilities.</li>
+<li>GPIO toggling HIGH/LOW depending on requested value: <code>HIGH</code> if &gt; 127 else <code>LOW</code></li>
+</ol>
+<h4 id="frequency">Frequency</h4>
+<p><code>analogWriteFrequency(freq)</code> has been added in core version greater than <strong>1.5.0</strong> to set the frequency used by <code>analogWrite()</code>. Default is <code>PWM_FREQUENCY</code> (1000) in Hertz.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>frequency is common to all channels of a specified timer, setting the frequency for one channel will impact all others of the same timer.</p>
+</div>
+<h5 id="example_1">Example</h5>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="c1">// Assuming Ax pins have PWM capabilities and use a different Timer.</span>
+<span class="w">  </span><span class="n">analogWrite</span><span class="p">(</span><span class="n">A1</span><span class="p">,</span><span class="w"> </span><span class="mi">127</span><span class="p">);</span><span class="w"> </span><span class="c1">// Start PWM on A1, at 1000 Hz with 50% duty cycle</span>
+<span class="w">  </span><span class="n">analogWriteFrequency</span><span class="p">(</span><span class="mi">2000</span><span class="p">);</span><span class="w"> </span><span class="c1">// Set PWM period to 2000 Hz instead of 1000</span>
+<span class="w">  </span><span class="n">analogWrite</span><span class="p">(</span><span class="n">A2</span><span class="p">,</span><span class="w"> </span><span class="mi">64</span><span class="p">);</span><span class="w"> </span><span class="c1">// Start PWM on A2, at 2000 Hz with 25% duty cycle</span>
+<span class="w">  </span><span class="n">analogWriteFrequency</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span><span class="w"> </span><span class="c1">// Set PWM period to 500 Hz</span>
+<span class="w">  </span><span class="n">analogWrite</span><span class="p">(</span><span class="n">A3</span><span class="p">,</span><span class="w"> </span><span class="mi">192</span><span class="p">);</span><span class="w"> </span><span class="c1">// Start PWM on A3, at 500 Hz with 75% duty cycle</span>
+</code></pre></div>
+<p><img alt="PWM Freq result" src="../img/PWM_Freq.png" /></p>
+<h4 id="dac-output-buffer">DAC output buffer</h4>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Available since version 2.8.0, thanks to <a href="https://github.com/stm32duino/Arduino_Core_STM32/pull/2309">PR #2309</a>.</p>
+</div>
+<p>It is now possible to disable the DAC output buffer (which is enabled by default) by defining <code>DISABLE_DAC_OUTPUTBUFFER</code>
+using one of the below options:</p>
+<ul>
+<li><a href="../customization/HAL-configuration/">hal_conf_extra.h</a></li>
+<li><a href="../customization/Customize-build-options-using-build_opt.h/"><code>build_opt.h</code></a></li>
+<li>header file of the variant: <code>variant_&lt;boardname&gt;.h</code></li>
+</ul>
+<h4 id="adc-general">ADC general</h4>
+<ul>
+<li>setup: <code>pinMode(pin, INPUT_ANALOG);</code>
+   has to be an ADC pin (e.g. PA0)</li>
+<li>read: <code>uint16_t adc_value = analogRead(pin);</code></li>
+</ul>
+<h4 id="adc-internal-channels">ADC internal channels</h4>
+<p>Available in core version greater than <strong>1.5.0</strong></p>
+<p><code>analogRead()</code> can now be used to read some  internal channels with the following definitions:</p>
+<ul>
+<li><code>ATEMP</code>: internal temperature sensor</li>
+<li><code>AVREF</code>: VrefInt, internal voltage reference</li>
+<li><code>AVBAT</code>: Vbat voltage</li>
+</ul>
+<h4 id="adc-read-resolution-bits">ADC read resolution (bits)</h4>
+<p>By default, <code>analogRead(pin)</code> returns 10-bit values to match the classic Arduino behavior and library expectations.</p>
+<p>Use <code>analogReadResolution(int bits)</code> to select another resolution, for example <code>analogReadResolution(12)</code> for a 12-bit ADC.</p>
+<h4 id="adc-sampling-time">ADC sampling time</h4>
+<p>A minimum ADC sampling time is required when reading internal channels, so the default is set to the maximum available value. It can be defined more precisely with:</p>
+<ul>
+<li><code>ADC_SAMPLINGTIME_INTERNAL</code>: set this to the desired ADC sample time.</li>
+</ul>
+<p><code>ADC_SAMPLINGTIME</code> and <code>ADC_CLOCK_DIV</code> could also be redefined by the variant or using <a href="../customization/Customize-build-options-using-build_opt.h/"><code>build_opt.h</code></a>.</p>
+<h5 id="example_2">Example</h5>
+<p>An example that reads and converts the three internal channels and A0 is provided by the <a href="https://github.com/stm32duino/STM32Examples">STM32Examples</a> library:
+<a href="https://github.com/stm32duino/STM32Examples/blob/main/examples/Peripherals/ADC/Internal_channels/Internal_channels.ino">Internal_channels</a></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This example is provided as-is and may require updates for device-specific datasheet values.</p>
+</div>
+<h3 id="hardwareserial">HardwareSerial</h3>
+<p>STM32 MCUs have several <em>U(S)ART</em> peripherals. For convenience, the <em>U(S)ART</em><strong>x</strong> number is used to define the <code>Serialx</code> instance:</p>
+<ul>
+<li><code>Serial1</code> for <code>USART1</code></li>
+<li><code>Serial2</code> for <code>USART2</code></li>
+<li><code>Serial3</code> for <code>USART3</code></li>
+<li><code>Serial4</code> for <code>UART4</code></li>
+<li>...</li>
+</ul>
+<p>For <em>LPUART</em> peripherals:</p>
+<ul>
+<li><code>SerialLP1</code> for <code>LPUART1</code></li>
+<li><code>SerialLP2</code> for <code>LPUART2</code></li>
+<li><code>SerialLP3</code> for <code>LPUART3</code></li>
+</ul>
+<p><strong>By default, only one <code>Serialx</code> instance is available mapped to the generic <code>Serial</code> name.</strong></p>
+<p>To use a second serial port, a <code>HardwareSerial</code> object should be declared in the sketch before the <code>setup()</code> function:
+<div class="highlight"><pre><span></span><code><span class="c1">//                      RX    TX</span>
+<span class="n">HardwareSerial</span><span class="w"> </span><span class="nf">Serial1</span><span class="p">(</span><span class="n">PA10</span><span class="p">,</span><span class="w"> </span><span class="n">PA9</span><span class="p">);</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Serial1</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Serial1</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"Hello World!"</span><span class="p">);</span>
+<span class="w">  </span><span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p>Another solution is to add a <a href="../customization/Customize-build-options-using-build_opt.h/"><code>build_opt.h</code></a> file alongside your main <code>.ino</code> file with: <code>-DENABLE_HWSERIALx</code>.</p>
+<p>This will define the <code>Serialx</code> instance using the first <code>USARTx</code> instance found in the <code>PeripheralPins.c</code> of your variant.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>that only the latter solution allows to use the <code>serialEventx()</code> callback in the sketch.</p>
+</div>
+<p>For Example, if you define in the <a href="../customization/Customize-build-options-using-build_opt.h/"><code>build_opt.h</code></a>: <code>-DENABLE_HWSERIAL3</code></p>
+<p>This will instantiate <code>Serial3</code> with the first Rx and Tx pins found in the <code>PinMap_UART_RX[]</code> and <code>PinMap_UART_TX[]</code> arrays in the <code>PeripheralPins.c</code> of your variant and the <code>serialEvent3()</code> will be enabled.</p>
+<p>To specify which Rx or Tx pins should be used instead of the first one found, define <code>PIN_SERIALn_RX</code> or <code>PIN_SERIALn_TX</code>, where <strong>n</strong> is the number of the Serial instance.</p>
+<p>Example for the <code>Serial3</code>:</p>
+<ul>
+<li>In the <code>variant.h</code>:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="cp">#define PIN_SERIAL3_RX PB11</span>
+<span class="cp">#define PIN_SERIAL3_TX PB10</span>
+</code></pre></div>
+<ul>
+<li>In the <a href="../customization/Customize-build-options-using-build_opt.h/"><code>build_opt.h</code></a>, use:</li>
+</ul>
+<p><code>-DPIN_SERIAL3_RX=PB11 -DPIN_SERIAL3_TX=PB10</code></p>
+<h4 id="new-api-functions">New API functions</h4>
+<h5 id="change-default-serial-instance-pins">Change default <code>Serial</code> instance pins</h5>
+<p>It is also possible to change the default pins used by the <code>Serial</code> instance using above API:</p>
+<ul>
+<li><code>void setRx(uint32_t rx)</code></li>
+<li><code>void setTx(uint32_t tx)</code></li>
+<li><code>void setRx(PinName rx)</code></li>
+<li><code>void setTx(PinName tx)</code></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Have to be called before <code>begin()</code>.</p>
+</div>
+<h6 id="example_3">Example:</h6>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">setRx</span><span class="p">(</span><span class="n">PG_9</span><span class="p">);</span><span class="w"> </span><span class="c1">// using pin name PY_n</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">setTx</span><span class="p">(</span><span class="n">PG14</span><span class="p">);</span><span class="w"> </span><span class="c1">// using pin number PYn</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">9600</span><span class="p">);</span>
+</code></pre></div>
+<h5 id="enable-half-duplex-mode">Enable half-duplex mode</h5>
+<p>Available in core version greater than <strong>1.7.0</strong></p>
+<p>It is now possible to set a <code>HardwareSerial</code> in half-duplex mode.</p>
+<p>The <code>U(S)ART</code> can be configured to follow a single-wire half-duplex protocol where the Tx and Rx lines are internally connected. In this communication mode, only the Tx pin is used for both transmission and reception.</p>
+<ul>
+<li>Extended <code>HardwareSerial</code> constructors:</li>
+<li><code>HardwareSerial(uint32_t _rxtx)</code>: U(S)ART Tx pin number (<code>PYn</code>) used for half-duplex</li>
+<li><code>HardwareSerial(PinName _rxtx)</code>: U(S)ART Tx pin name (<code>PY_n</code>) used for half-duplex</li>
+<li>if <code>Rx == Tx</code> then assume half-duplex mode:<ul>
+<li><code>HardwareSerial(uint32_t _rx, uint32_t _tx)</code>: U(S)ART Tx pin number (<code>PYn</code>) used for half-duplex</li>
+<li><code>HardwareSerial(PinName _rx, PinName tx)</code>: U(S)ART Tx pin name (<code>PY_n</code>) used for half-duplex</li>
+</ul>
+</li>
+<li>
+<p><code>HardwareSerial(void *peripheral, HalfDuplexMode_t halfDuplex = HALF_DUPLEX_DISABLED)</code>: if <code>HALF_DUPLEX_ENABLED</code> get the first Tx pin for requested peripheral in the<code>PeripheralPins.c</code> used for half-duplex</p>
+</li>
+<li>
+<p>Add <code>enableHalfDuplexRx()</code> to enable Serial in Rx mode. Doing a <code>read()</code> could be used but will avoid to perform a read. Useful before <code>available()</code> usage</p>
+</li>
+<li><code>void setHalfDuplex()</code>: enable half-duplex mode of an instance when it not instantiate in half-duplex mode. Must be call before <code>begin()</code> in this case.</li>
+</ul>
+<h6 id="example-for-a-nucleo-l496zg-p">Example for a <strong>Nucleo L496ZG-P</strong>:</h6>
+<p><code>Serial4</code> sends byte to <code>Serial3</code>, compare values then <code>Serial3</code> resend it to <code>Serial4</code> and compare.
+Require to connect <code>PA0</code> and<code>PB10</code>.</p>
+<p><em>All possible constructor are listed.</em></p>
+<div class="highlight"><pre><span></span><code><span class="n">HardwareSerial</span><span class="w"> </span><span class="nf">Serial3</span><span class="p">(</span><span class="n">PA0</span><span class="p">);</span>
+<span class="n">HardwareSerial</span><span class="w"> </span><span class="nf">Serial4</span><span class="p">(</span><span class="n">PB10</span><span class="p">);</span>
+
+<span class="c1">//HardwareSerial Serial3(PA_0);</span>
+<span class="c1">//HardwareSerial Serial4(PB_10);</span>
+
+<span class="c1">//HardwareSerial Serial3(UART4, HALF_DUPLEX_ENABLED);</span>
+<span class="c1">//HardwareSerial Serial4(USART3, HALF_DUPLEX_ENABLED);</span>
+
+<span class="c1">//HardwareSerial Serial3(PA0, PA0);</span>
+<span class="c1">//HardwareSerial Serial4(PB10, PB10);</span>
+
+<span class="c1">//HardwareSerial Serial3(PA_0, PA_0);</span>
+<span class="c1">//HardwareSerial Serial4(PB_10, PB_10);</span>
+
+<span class="c1">//HardwareSerial Serial3(NC, PA_0);</span>
+<span class="c1">//HardwareSerial Serial4(NC, PB_10);</span>
+
+<span class="c1">//HardwareSerial Serial3(NUM_DIGITAL_PINS, PA0);</span>
+<span class="c1">//HardwareSerial Serial4(NUM_DIGITAL_PINS, PB10);</span>
+
+<span class="k">static</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">nbTestOK</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="k">static</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">nbTestKO</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">test_uart</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">recval</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">error</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="w">  </span><span class="n">Serial4</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">val</span><span class="p">);</span>
+<span class="w">  </span><span class="n">delay</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">Serial3</span><span class="p">.</span><span class="n">available</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">recval</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Serial3</span><span class="p">.</span><span class="n">read</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="cm">/* Enable Serial4 to RX*/</span>
+<span class="w">  </span><span class="n">Serial4</span><span class="p">.</span><span class="n">enableHalfDuplexRx</span><span class="p">();</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">val</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">recval</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Serial3</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">val</span><span class="p">);</span>
+<span class="w">    </span><span class="n">delay</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">Serial4</span><span class="p">.</span><span class="n">available</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">recval</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Serial4</span><span class="p">.</span><span class="n">read</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="cm">/* Enable Serial3 to RX*/</span>
+<span class="w">    </span><span class="n">Serial3</span><span class="p">.</span><span class="n">enableHalfDuplexRx</span><span class="p">();</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">val</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">recval</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">nbTestOK</span><span class="o">++</span><span class="p">;</span>
+<span class="w">      </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"Exchange: 0x"</span><span class="p">);</span>
+<span class="w">      </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">recval</span><span class="p">,</span><span class="w"> </span><span class="n">HEX</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">error</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">error</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"Send: 0x"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">val</span><span class="p">,</span><span class="w"> </span><span class="n">HEX</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"</span><span class="se">\t</span><span class="s">Received: 0x"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">recval</span><span class="p">,</span><span class="w"> </span><span class="n">HEX</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">" --&gt; KO &lt;--"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">error</span><span class="p">);</span>
+<span class="w">    </span><span class="n">nbTestKO</span><span class="o">++</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+<span class="w">  </span><span class="n">Serial4</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">9600</span><span class="p">);</span>
+<span class="w">  </span><span class="n">Serial3</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">9600</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="p">(</span><span class="mh">0xFF</span><span class="p">);</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">test_uart</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"Serial Half-Duplex test done.</span><span class="se">\n</span><span class="s">Results:"</span><span class="p">);</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"OK: "</span><span class="p">);</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">nbTestOK</span><span class="p">);</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"KO: "</span><span class="p">);</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">nbTestKO</span><span class="p">);</span>
+<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Serial Rx/TX buffer size can be changed, see <a href="../customization/Custom-definitions/">Custom-definitions#serial-rxtx-buffer-size</a></p>
+</div>
+<h5 id="enable-hardware-flow-control">Enable hardware flow control</h5>
+<p>Available in core version <strong>2.3.0</strong> or later</p>
+<ul>
+<li><code>HardwareSerial</code> constructors accept optional RTS/CTS pins:</li>
+<li><code>HardwareSerial(uint32_t _rx, uint32_t _tx, uint32_t _rts = NUM_DIGITAL_PINS, uint32_t _cts = NUM_DIGITAL_PINS)</code></li>
+<li><code>HardwareSerial(PinName _rx, PinName _tx, PinName _rts = NC, PinName _cts = NC)</code></li>
+<li>You can also enable RTS/CTS pins on <code>HardwareSerial</code> instances:</li>
+<li><code>void setRts(uint32_t _rts)</code></li>
+<li><code>void setCts(uint32_t _cts)</code></li>
+<li><code>void setRtsCts(uint32_t _rts, uint32_t _cts)</code></li>
+<li><code>void setRts(PinName _rts)</code></li>
+<li><code>void setCts(PinName _cts)</code></li>
+<li><code>void setRtsCts(PinName _rts, PinName _cts)</code></li>
+</ul>
+<h6 id="example_4">Example:</h6>
+<div class="highlight"><pre><span></span><code><span class="c1">// Enable hardware flow control on construction.</span>
+<span class="n">HardwareSerial</span><span class="w"> </span><span class="nf">serial</span><span class="p">(</span><span class="n">PA10</span><span class="p">,</span><span class="w"> </span><span class="n">PA9</span><span class="p">,</span><span class="w"> </span><span class="n">PA12</span><span class="p">,</span><span class="w"> </span><span class="n">PA11</span><span class="p">);</span>
+
+<span class="c1">// Or, enable later (but before calling begin()).</span>
+<span class="n">HardwareSerial</span><span class="w"> </span><span class="nf">serial</span><span class="p">(</span><span class="n">PA10</span><span class="p">,</span><span class="w"> </span><span class="n">PA9</span><span class="p">);</span>
+<span class="n">serial</span><span class="p">.</span><span class="n">setRtsCts</span><span class="p">(</span><span class="n">PA12</span><span class="p">,</span><span class="w"> </span><span class="n">PA11</span><span class="p">);</span>
+<span class="n">serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">460800</span><span class="p">);</span>
+</code></pre></div>
+<h5 id="enable-tx-rx-pin-active-level-andor-data-inversion">Enable Tx, Rx Pin Active Level and/or Data Inversion</h5>
+<p>Available in core version greater than <strong>2.10.1</strong></p>
+<p>The U(S)ART Tx and Rx pin signal values can be inverted (VDD = 0/mark, Gnd = 1/idle), and the U(S)ART can send and receive data in negative/inverse logic (1 = L, 0 = H); the
+parity bit is also inverted.</p>
+<ul>
+<li>Enable Tx and Rx active level inversion on <code>HardwareSerial</code> instances, respectively:</li>
+<li><code>void setTxInvert(void)</code></li>
+<li><code>void setRxInvert(void)</code></li>
+<li>Enable data inversion on <code>HardwareSerial</code> instances:</li>
+<li><code>void setDataInvert(void)</code></li>
+</ul>
+<h3 id="hardwaretimer-library">HardwareTimer library</h3>
+<p>See the <a href="../HardwareTimer-library/">HardwareTimer library reference</a> for the timer API and STM32-specific timer features.</p>
+<h2 id="built-in-libraries">Built-in libraries</h2>
+<p>This part describes the STM32 libraries provided with the core.</p>
+<h3 id="spi">SPI</h3>
+<p>STM32 SPI library has been modified with the possibility to manage hardware CS pin linked to the SPI peripheral.
+This section documents STM32-specific additions to the <a href="https://docs.arduino.cc/language-reference/en/functions/communication/SPI/">standard SPI API</a>.</p>
+<p>There are two ways to manage the CS pin:</p>
+<ul>
+<li>the CS pin is managed directly by the user code before to transfer the data (like the Arduino SPI library)</li>
+<li>the user uses a hardware CS pin linked to the SPI peripheral</li>
+</ul>
+<h4 id="new-spisetting-parameter">New SPISetting parameter</h4>
+<ul>
+<li><code>noReceive</code>: value can be <code>SPI_TRANSMITRECEIVE</code> or <code>SPI_TRANSMITONLY</code>. It allows to skip receive data after transmitting.</li>
+</ul>
+<h4 id="new-api-functions_1">New API functions</h4>
+<ul>
+<li><code>SPIClass::SPIClass(uint8_t mosi, uint8_t miso, uint8_t sclk, uint8_t ssel)</code>: alternative class constructor
+<em>Params</em> SPI <code>mosi</code> pin
+<em>Params</em> SPI <code>miso</code> pin
+<em>Params</em> SPI <code>sclk</code> pin
+<em>Params</em> (optional) SPI <code>ssel</code> pin. This pin must be an hardware CS pin. If you configure this pin, the chip select will be managed by the SPI peripheral.</li>
+</ul>
+<h6 id="example_5">Example</h6>
+<p>This is an example of the use of the hardware CS pin linked to the SPI peripheral:</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;SPI.h&gt;</span>
+<span class="c1">//            MOSI  MISO  SCLK   SSEL</span>
+<span class="n">SPIClass</span><span class="w"> </span><span class="nf">SPI_3</span><span class="p">(</span><span class="n">PC12</span><span class="p">,</span><span class="w"> </span><span class="n">PC11</span><span class="p">,</span><span class="w"> </span><span class="n">PC10</span><span class="p">,</span><span class="w"> </span><span class="n">PC9</span><span class="p">);</span>
+<span class="n">SPISettings</span><span class="w"> </span><span class="nf">settings</span><span class="p">(</span><span class="mi">1000000</span><span class="p">,</span><span class="w"> </span><span class="n">MSBFIRST</span><span class="p">,</span><span class="w"> </span><span class="n">SPI_MODE0</span><span class="p">);</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">SPI_3</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span><span class="w"> </span><span class="c1">// Enable the SPI_3 instance with default SPISsettings</span>
+<span class="w">  </span><span class="n">SPI_3</span><span class="p">.</span><span class="n">beginTransaction</span><span class="p">(</span><span class="n">settings</span><span class="p">);</span><span class="w"> </span><span class="c1">// Configure the SPI_3 instance</span>
+<span class="w">  </span><span class="n">SPI_3</span><span class="p">.</span><span class="n">transfer</span><span class="p">(</span><span class="mh">0x52</span><span class="p">);</span><span class="w"> </span><span class="c1">// Transfers data to the first device</span>
+<span class="w">  </span><span class="n">SPI_3</span><span class="p">.</span><span class="n">end</span><span class="p">();</span><span class="w"> </span><span class="c1">// SPI_3 instance is disabled</span>
+<span class="p">}</span>
+</code></pre></div>
+<h5 id="change-default-spi-instance-pins">Change default <code>SPI</code> instance pins</h5>
+<p>It is also possible to change the default pins used by the <code>SPI</code> instance using above API:</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Have to be called before <code>begin()</code>.</p>
+</div>
+<ul>
+<li><code>void setMISO(uint32_t miso)</code></li>
+<li><code>void setMOSI(uint32_t mosi)</code></li>
+<li><code>void setSCLK(uint32_t sclk)</code></li>
+<li><code>void setSSEL(uint32_t ssel)</code></li>
+<li><code>void setMISO(PinName miso)</code></li>
+<li><code>void setMOSI(PinName mosi)</code></li>
+<li><code>void setSCLK(PinName sclk)</code></li>
+<li><code>void setSSEL(PinName ssel)</code></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Using <code>setSSEL()</code> allows to enable hardware CS pin management linked to the SPI peripheral.</p>
+</div>
+<h6 id="example_6">Example:</h6>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="n">SPI</span><span class="p">.</span><span class="n">setMISO</span><span class="p">(</span><span class="n">PC_4</span><span class="p">);</span><span class="w"> </span><span class="c1">// using pin name PY_n</span>
+<span class="w">    </span><span class="n">SPI</span><span class="p">.</span><span class="n">setMOSI</span><span class="p">(</span><span class="n">PC2</span><span class="p">);</span><span class="w"> </span><span class="c1">// using pin number PYn</span>
+<span class="w">    </span><span class="n">SPI</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</code></pre></div>
+<h3 id="i2c">I2C</h3>
+<p>By default, only one <code>Wire</code> instance is available and it uses the Arduino pins D14(SDA) and D15(SCL).
+To use a second I2C port, a <code>TwoWire</code> object should be declared in the sketch before the <code>setup()</code> function:
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;Wire.h&gt;</span>
+<span class="c1">//            SDA  SCL</span>
+<span class="n">TwoWire</span><span class="w"> </span><span class="nf">Wire2</span><span class="p">(</span><span class="n">PB3</span><span class="p">,</span><span class="w"> </span><span class="n">PB10</span><span class="p">);</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Wire2</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Wire2</span><span class="p">.</span><span class="n">beginTransmission</span><span class="p">(</span><span class="mh">0x71</span><span class="p">);</span>
+<span class="w">  </span><span class="n">Wire2</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="sc">'v'</span><span class="p">);</span>
+<span class="w">  </span><span class="n">Wire2</span><span class="p">.</span><span class="n">endTransmission</span><span class="p">();</span>
+<span class="w">  </span><span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p>See <a href="../customization/Custom-definitions/#i2c-timing">I2C Timing</a> to customize the I2C speed if needed.</p>
+<h4 id="default-i2c-pins">Default I2C pins</h4>
+<p><strong>The default I2C interface pins are configured inside the PeripheralPins.c file.</strong></p>
+<h5 id="example-for-nucleo-l452re-in-file-peripheralpinsc">Example (for Nucleo-L452RE in file PeripheralPins.c):</h5>
+<div class="highlight"><pre><span></span><code><span class="cp">#ifdef HAL_I2C_MODULE_ENABLED</span>
+<span class="w"> </span><span class="n">WEAK</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">PinMap</span><span class="w"> </span><span class="n">PinMap_I2C_SDA</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="p">{</span><span class="n">PA_10</span><span class="p">,</span><span class="w"> </span><span class="n">I2C1</span><span class="p">,</span><span class="w"> </span><span class="n">STM_PIN_DATA</span><span class="p">(</span><span class="n">STM_MODE_AF_OD</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO_NOPULL</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO_AF4_I2C1</span><span class="p">)},</span>
+<span class="w">   </span><span class="p">{</span><span class="n">PB_4</span><span class="p">,</span><span class="w">  </span><span class="n">I2C3</span><span class="p">,</span><span class="w"> </span><span class="n">STM_PIN_DATA</span><span class="p">(</span><span class="n">STM_MODE_AF_OD</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO_NOPULL</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO_AF4_I2C3</span><span class="p">)},</span>
+<span class="w">   </span><span class="p">{</span><span class="n">PB_7</span><span class="p">,</span><span class="w">  </span><span class="n">I2C1</span><span class="p">,</span><span class="w"> </span><span class="n">STM_PIN_DATA</span><span class="p">(</span><span class="n">STM_MODE_AF_OD</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO_NOPULL</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO_AF4_I2C1</span><span class="p">)},</span>
+<span class="w">   </span><span class="c1">//  {PB_7,  I2C4, STM_PIN_DATA(STM_MODE_AF_OD, GPIO_NOPULL, GPIO_AF5_I2C4)},</span>
+<span class="w">   </span><span class="p">{</span><span class="n">PB_9</span><span class="p">,</span><span class="w">  </span><span class="n">I2C1</span><span class="p">,</span><span class="w"> </span><span class="n">STM_PIN_DATA</span><span class="p">(</span><span class="n">STM_MODE_AF_OD</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO_NOPULL</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO_AF4_I2C1</span><span class="p">)},</span>
+<span class="w">   </span><span class="p">{</span><span class="n">PB_11</span><span class="p">,</span><span class="w"> </span><span class="n">I2C2</span><span class="p">,</span><span class="w"> </span><span class="n">STM_PIN_DATA</span><span class="p">(</span><span class="n">STM_MODE_AF_OD</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO_NOPULL</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO_AF4_I2C2</span><span class="p">)},</span>
+<span class="w">   </span><span class="c1">//  {PB_11, I2C4, STM_PIN_DATA(STM_MODE_AF_OD, GPIO_NOPULL, GPIO_AF3_I2C4)},</span>
+<span class="w">   </span><span class="p">{</span><span class="n">PB_14</span><span class="p">,</span><span class="w"> </span><span class="n">I2C2</span><span class="p">,</span><span class="w"> </span><span class="n">STM_PIN_DATA</span><span class="p">(</span><span class="n">STM_MODE_AF_OD</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO_NOPULL</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO_AF4_I2C2</span><span class="p">)},</span>
+<span class="w">   </span><span class="c1">//  {PC_1,  I2C3, STM_PIN_DATA(STM_MODE_AF_OD, GPIO_NOPULL, GPIO_AF4_I2C3)},</span>
+<span class="w">   </span><span class="p">{</span><span class="n">PC_1</span><span class="p">,</span><span class="w">  </span><span class="n">I2C4</span><span class="p">,</span><span class="w"> </span><span class="n">STM_PIN_DATA</span><span class="p">(</span><span class="n">STM_MODE_AF_OD</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO_NOPULL</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO_AF2_I2C4</span><span class="p">)},</span>
+<span class="w">   </span><span class="p">{</span><span class="n">NC</span><span class="p">,</span><span class="w">    </span><span class="n">NP</span><span class="p">,</span><span class="w">    </span><span class="mi">0</span><span class="p">}</span>
+<span class="w"> </span><span class="p">};</span>
+<span class="w"> </span><span class="cp">#endif</span>
+
+<span class="w"> </span><span class="cp">#ifdef HAL_I2C_MODULE_ENABLED</span>
+<span class="w"> </span><span class="n">WEAK</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">PinMap</span><span class="w"> </span><span class="n">PinMap_I2C_SCL</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="p">{</span><span class="n">PA_7</span><span class="p">,</span><span class="w">  </span><span class="n">I2C3</span><span class="p">,</span><span class="w"> </span><span class="n">STM_PIN_DATA</span><span class="p">(</span><span class="n">STM_MODE_AF_OD</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO_NOPULL</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO_AF4_I2C3</span><span class="p">)},</span>
+<span class="w">   </span><span class="p">{</span><span class="n">PA_9</span><span class="p">,</span><span class="w">  </span><span class="n">I2C1</span><span class="p">,</span><span class="w"> </span><span class="n">STM_PIN_DATA</span><span class="p">(</span><span class="n">STM_MODE_AF_OD</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO_NOPULL</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO_AF4_I2C1</span><span class="p">)},</span>
+<span class="w">   </span><span class="c1">//  {PB_6,  I2C1, STM_PIN_DATA(STM_MODE_AF_OD, GPIO_NOPULL, GPIO_AF4_I2C1)},</span>
+<span class="w">   </span><span class="p">{</span><span class="n">PB_6</span><span class="p">,</span><span class="w">  </span><span class="n">I2C4</span><span class="p">,</span><span class="w"> </span><span class="n">STM_PIN_DATA</span><span class="p">(</span><span class="n">STM_MODE_AF_OD</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO_NOPULL</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO_AF5_I2C4</span><span class="p">)},</span>
+<span class="w">   </span><span class="p">{</span><span class="n">PB_8</span><span class="p">,</span><span class="w">  </span><span class="n">I2C1</span><span class="p">,</span><span class="w"> </span><span class="n">STM_PIN_DATA</span><span class="p">(</span><span class="n">STM_MODE_AF_OD</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO_NOPULL</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO_AF4_I2C1</span><span class="p">)},</span>
+<span class="w">   </span><span class="p">{</span><span class="n">PB_10</span><span class="p">,</span><span class="w"> </span><span class="n">I2C2</span><span class="p">,</span><span class="w"> </span><span class="n">STM_PIN_DATA</span><span class="p">(</span><span class="n">STM_MODE_AF_OD</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO_NOPULL</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO_AF4_I2C2</span><span class="p">)},</span>
+<span class="w">   </span><span class="c1">//  {PB_10, I2C4, STM_PIN_DATA(STM_MODE_AF_OD, GPIO_NOPULL, GPIO_AF3_I2C4)},</span>
+<span class="w">   </span><span class="p">{</span><span class="n">PB_13</span><span class="p">,</span><span class="w"> </span><span class="n">I2C2</span><span class="p">,</span><span class="w"> </span><span class="n">STM_PIN_DATA</span><span class="p">(</span><span class="n">STM_MODE_AF_OD</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO_NOPULL</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO_AF4_I2C2</span><span class="p">)},</span>
+<span class="w">   </span><span class="c1">//  {PC_0,  I2C3, STM_PIN_DATA(STM_MODE_AF_OD, GPIO_NOPULL, GPIO_AF4_I2C3)},</span>
+<span class="w">   </span><span class="p">{</span><span class="n">PC_0</span><span class="p">,</span><span class="w">  </span><span class="n">I2C4</span><span class="p">,</span><span class="w"> </span><span class="n">STM_PIN_DATA</span><span class="p">(</span><span class="n">STM_MODE_AF_OD</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO_NOPULL</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO_AF2_I2C4</span><span class="p">)},</span>
+<span class="w">   </span><span class="p">{</span><span class="n">NC</span><span class="p">,</span><span class="w">    </span><span class="n">NP</span><span class="p">,</span><span class="w">    </span><span class="mi">0</span><span class="p">}</span>
+<span class="w"> </span><span class="p">};</span>
+<span class="w"> </span><span class="cp">#endif</span>
+</code></pre></div>
+<h4 id="redefine-i2c-pins">Redefine I2C pins</h4>
+<p>Because they are defined as WEAK, you can redefine them in your sketch file instead of changing values in the PeripheralPins.c file.
+You can also enable/disable the internal pull-ups with the second parameter of STM_PIN_DATA().</p>
+<h6 id="example-inside-of-sketch-file">Example (inside of sketch file):</h6>
+<div class="highlight"><pre><span></span><code><span class="k">const</span><span class="w"> </span><span class="n">PinMap</span><span class="w"> </span><span class="n">PinMap_I2C_SDA</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="p">{</span><span class="n">PB_9</span><span class="p">,</span><span class="w">  </span><span class="n">I2C1</span><span class="p">,</span><span class="w"> </span><span class="n">STM_PIN_DATA</span><span class="p">(</span><span class="n">STM_MODE_AF_OD</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO_NOPULLUP</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO_AF4_I2C1</span><span class="p">)},</span>
+<span class="w">  </span><span class="p">{</span><span class="n">PC_1</span><span class="p">,</span><span class="w">  </span><span class="n">I2C4</span><span class="p">,</span><span class="w"> </span><span class="n">STM_PIN_DATA</span><span class="p">(</span><span class="n">STM_MODE_AF_OD</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO_PULLUP</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO_AF2_I2C4</span><span class="p">)},</span>
+<span class="w">  </span><span class="p">{</span><span class="n">NC</span><span class="p">,</span><span class="w">    </span><span class="n">NP</span><span class="p">,</span><span class="w">    </span><span class="mi">0</span><span class="p">}</span>
+<span class="p">};</span>
+<span class="k">const</span><span class="w"> </span><span class="n">PinMap</span><span class="w"> </span><span class="n">PinMap_I2C_SCL</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="p">{</span><span class="n">PB_8</span><span class="p">,</span><span class="w">  </span><span class="n">I2C1</span><span class="p">,</span><span class="w"> </span><span class="n">STM_PIN_DATA</span><span class="p">(</span><span class="n">STM_MODE_AF_OD</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO_NOPULLUP</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO_AF4_I2C1</span><span class="p">)},</span>
+<span class="w">  </span><span class="p">{</span><span class="n">PC_0</span><span class="p">,</span><span class="w">  </span><span class="n">I2C4</span><span class="p">,</span><span class="w"> </span><span class="n">STM_PIN_DATA</span><span class="p">(</span><span class="n">STM_MODE_AF_OD</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO_PULLUP</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO_AF2_I2C4</span><span class="p">)},</span>
+<span class="w">  </span><span class="p">{</span><span class="n">NC</span><span class="p">,</span><span class="w">    </span><span class="n">NP</span><span class="p">,</span><span class="w">    </span><span class="mi">0</span><span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+<h4 id="new-api-functions_2">New API functions</h4>
+<h5 id="change-default-wire-instance-pins">Change default <code>Wire</code> instance pins</h5>
+<p>It is also possible to change the default pins used by the <code>Wire</code> instance using above API:</p>
+<ul>
+<li><code>void setSCL(uint32_t scl)</code></li>
+<li><code>void setSDA(uint32_t sda)</code></li>
+<li><code>void setSCL(PinName scl)</code></li>
+<li><code>void setSDA(PinName sda)</code></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Have to be called before <code>begin()</code>.</p>
+</div>
+<h6 id="example_7">Example:</h6>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="n">Wire</span><span class="p">.</span><span class="n">setSDA</span><span class="p">(</span><span class="n">PC_4</span><span class="p">);</span><span class="w"> </span><span class="c1">// using pin name PY_n</span>
+<span class="w">    </span><span class="n">Wire</span><span class="p">.</span><span class="n">setSCL</span><span class="p">(</span><span class="n">PC2</span><span class="p">);</span><span class="w"> </span><span class="c1">// using pin number PYn</span>
+<span class="w">    </span><span class="n">Wire</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
+</code></pre></div>
+<h5 id="enable-general-call-mode">Enable general call mode</h5>
+<p>Available in core version greater than <strong>1.5.0</strong></p>
+<p>Adding <code>true</code> as last parameters of the 3 <code>Wire::begin()</code> methods will enable the general call mode otherwise <code>false</code> per default:</p>
+<ul>
+<li><code>void begin(bool generalCall = false)</code></li>
+<li><code>void begin(uint8_t, bool generalCall = false)</code></li>
+<li><code>void begin(int, bool generalCall = false)</code></li>
+</ul>
+<h6 id="example_8">Example</h6>
+<p><code>Wire.begin(true);</code> or <code>Wire.begin(0x70,true);</code></p>
+<h4 id="i2c-buffer-management">I2C buffer management</h4>
+<p>By default, I2C buffers are aligned with the Arduino API at <strong>32 bytes</strong>. Transfers of up to <strong>255 bytes</strong> are also possible:</p>
+<ul>
+<li>
+<p>In master mode: RX and TX buffers will automatically grow when needed, independently one from each other, and independently from other I2C instances. Nothing to do from application point of view. Warning: a bug in STM32 cube HAL (STM32 core v1.8.0) prevents to transfer exactly 255 bytes. (see <a href="https://github.com/stm32duino/Arduino_Core_STM32/pull/853">PR #853</a>)</p>
+</li>
+<li>
+<p>In slave mode: RX and TX buffer size can be statically redefined using <a href="../customization/HAL-configuration/">hal_conf_extra.h</a> or <a href="../customization/Customize-build-options-using-build_opt.h/"><code>build_opt.h</code></a> (at compilation time) thanks to switch <code>I2C_TXRX_BUFFER_SIZE</code> (see <a href="https://github.com/stm32duino/Arduino_Core_STM32/pull/853">PR #853</a>). All I2C instances are impacted by change of this compilation switch.</p>
+</li>
+</ul>
+<h3 id="cmsis-dsp">CMSIS-DSP</h3>
+<p>Available in core version greater than <strong>1.7.0</strong></p>
+<p>CMSIS-DSP is a suite of common signal-processing functions for Cortex-M devices.</p>
+<p>The library is divided into a number of functions each covering a specific category:</p>
+<ul>
+<li>Basic math functions</li>
+<li>Fast math functions</li>
+<li>Complex math functions</li>
+<li>Filters</li>
+<li>Matrix functions</li>
+<li>Transform functions</li>
+<li>Motor control functions</li>
+<li>Statistical functions</li>
+<li>Support functions</li>
+<li>Interpolation functions.</li>
+</ul>
+<p>The library has separate functions for operating on 8-bit integers, 16-bit integers, 32-bit integer and 32-bit floating-point value.</p>
+<p>More info:
+<a href="https://arm-software.github.io/CMSIS_5/DSP/html/index.html">https://arm-software.github.io/CMSIS_5/DSP/html/index.html</a></p>
+<p>To use it, include:
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;CMSIS_DSP.h&gt;</span>
+</code></pre></div></p>
+<p><code>arm_math.h</code> is then included automatically.</p>
+<h3 id="eeprom-emulation">EEPROM emulation</h3>
+<p>EEPROM emulation is based on Arduino API:
+<a href="https://docs.arduino.cc/learn/built-in-libraries/eeprom/">https://docs.arduino.cc/learn/built-in-libraries/eeprom/</a></p>
+<p>Emulation is made in Flash, with all constraints related to Flash operation:</p>
+<ul>
+<li>whole sector/page erased and written for each write operation. This can be very long depending on sector/page size.</li>
+<li>limited Flash life cycle write operation</li>
+</ul>
+<p>In addition to Arduino API, to mitigate Flash constraints, it is possible to use buffered API:
+Write operations are made in an intermediate RAM buffer, and only at the end (after writing several parameters for example) the buffer is copied in Flash. Thus only 1 write operation for a whole bunch of data.
+Example is available here: <a href="https://github.com/stm32duino/STM32Examples/tree/main/examples/NonReg/BufferedEEPROM">https://github.com/stm32duino/STM32Examples/tree/main/examples/NonReg/BufferedEEPROM</a>
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">eeprom_buffer_fill</span><span class="p">();</span><span class="w"> </span><span class="c1">// This function copies the data from flash into the buffer</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">eeprom_buffer_flush</span><span class="p">();</span><span class="w"> </span><span class="c1">// This function writes the buffer content into the flash</span>
+<span class="kt">uint8_t</span><span class="w"> </span><span class="nf">eeprom_buffered_read_byte</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">pos</span><span class="p">);</span><span class="w"> </span><span class="c1">// Function reads a byte from the eeprom buffer</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">eeprom_buffered_write_byte</span><span class="p">(</span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">pos</span><span class="p">,</span><span class="w"> </span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">value</span><span class="p">);</span><span class="w"> </span><span class="c1">// Function writes a byte to the eeprom buffer</span>
+</code></pre></div>
+By default, EEPROM emulation storage correspond to the last sector/page of Flash,
+and its size correspond to the size of the last sector/page.
+Nevertheless it is possible to customize address and size used for EEPROM.
+In this case, following switches should be defined (in variant.h or <a href="../customization/Customize-build-options-using-build_opt.h/"><code>build_opt.h</code></a>)</p>
+<ul>
+<li><code>FLASH_BASE_ADDRESS</code></li>
+<li><code>FLASH_DATA_SECTOR</code> or <code>FLASH_PAGE_NUMBER</code> (depending on STM32 family used)</li>
+</ul>
+<p>see example of variant implementation: <a href="https://github.com/stm32duino/Arduino_Core_STM32/pull/938">PR #938</a></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Single/dual bank configuration:</p>
+<p>Default last sector used correspond to default board configuration.</p>
+<p>For example, NUCLEO_F767ZI is by default configured in single bank. Last sector correspond to this bank configuration.
+If this configuration is changed, it is then mandatory to customize <code>FLASH_BASE_ADDRESS</code>/<code>FLASH_DATA_SECTOR</code>,
+even to use last sector of Flash.</p>
+</div>
+<h3 id="servo-library">Servo library</h3>
+<p>See the <a href="../libraries/built-in/Servo-library/">Servo library reference</a> for the supported Servo API.</p>
+<h2 id="other">Other</h2>
+<h3 id="remembering-variables-across-resets">Remembering variables across resets</h3>
+<p>Since core version 1.9.0 (see <a href="https://github.com/stm32duino/Arduino_Core_STM32/pull/996">PR #996</a>), it is possible to mark variables as "noinit", which prevents them from being initialized to a fixed value at startup. This allows using these variables to remember a value across resets (since the reset itself leaves memory unchanged, it is only the startup code that normally resets all variable values, but that is prevented by noinit).</p>
+<p>To do this, the variable must be placed in the <code>.noinit</code> section by adding <code>__attribute__((__section__(".noinit")))</code> (this is exactly the same as how this works on the original Arduino AVR core). Typically, you would also need to check the startup reason register so you can initialize the variable with a default on the first startup. For example, something like:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">unsigned</span><span class="w"> </span><span class="n">boot_count</span><span class="w"> </span><span class="n">__attribute__</span><span class="p">((</span><span class="n">__section__</span><span class="p">(</span><span class="s">".noinit"</span><span class="p">)));</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">Serial</span><span class="p">);</span><span class="w"> </span><span class="c1">// Wait for serial port open</span>
+
+<span class="w">    </span><span class="c1">// Initialize the variable only on first power-on reset</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">__HAL_RCC_GET_FLAG</span><span class="p">(</span><span class="n">RCC_FLAG_BORRST</span><span class="p">))</span>
+<span class="w">        </span><span class="n">boot_count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="n">__HAL_RCC_CLEAR_RESET_FLAGS</span><span class="p">();</span>
+
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"Boot number: "</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">boot_count</span><span class="p">);</span>
+<span class="w">    </span><span class="o">++</span><span class="n">boot_count</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+<p>This shows the number of boots since the last POR by incrementing a noinit variable across resets. Note that when you first upload this, it might not start at 1 but at some arbitrary value, because typically the first boot after an upload is not a power-on-reset. To start at 1, disconnect and reconnect power.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy"], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="../supported-boards/supported-boards.js"></script>
+      
+    
+  </body>
+</html>
