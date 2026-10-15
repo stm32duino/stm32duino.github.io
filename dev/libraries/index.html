@@ -16,7 +16,7 @@
         <link rel="prev" href="../STM32MP1/">
       
       
-        <link rel="next" href="built-in/Servo-library/">
+        <link rel="next" href="built-in/CMSIS-DSP-library/">
       
       
         
@@ -1034,6 +1034,90 @@
   
   
     <li class="md-nav__item">
+      <a href="built-in/CMSIS-DSP-library/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CMSIS-DSP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="built-in/EEPROM-library/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EEPROM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="built-in/I2C-library/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    I2C
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="built-in/Servo-library/" class="md-nav__link">
         
   
@@ -1042,6 +1126,34 @@
     
   
     Servo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="built-in/SPI-library/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SPI
   
 
     
@@ -1653,7 +1765,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../development/Contributing/" class="md-nav__link">
+      <a href="https://github.com/stm32duino/Arduino_Core_STM32/blob/main/CONTRIBUTING.md" class="md-nav__link">
         
   
   
@@ -2909,15 +3021,15 @@ or have a look hereafter to see which one is available:</p>
 </div>
 <h2 id="built-in-delivered-with-the-core-package">Built-in (delivered with the core package)</h2>
 <ul>
-<li>CMSIS_DSP: see usage example <a href="https://github.com/stm32duino/Arduino_Core_STM32/blob/main/libraries/CMSIS_DSP/examples/arm_sin_cos_example_f32/arm_sin_cos_example_f32.ino">here</a></li>
-<li>EEPROM: follow the official <a href="https://docs.arduino.cc/learn/built-in-libraries/eeprom/">EEPROM</a> API</li>
+<li>CMSIS_DSP: see the <a href="built-in/CMSIS-DSP-library/">CMSIS-DSP reference</a> and the usage example <a href="https://github.com/stm32duino/Arduino_Core_STM32/blob/main/libraries/CMSIS_DSP/examples/arm_sin_cos_example_f32/arm_sin_cos_example_f32.ino">here</a></li>
+<li>EEPROM: follow the official <a href="https://docs.arduino.cc/learn/built-in-libraries/eeprom/">EEPROM</a> API, see also the <a href="built-in/EEPROM-library/">EEPROM emulation reference</a></li>
 <li>IWatchdog: see <a href="https://github.com/stm32duino/Arduino_Core_STM32/blob/main/libraries/IWatchdog/README.md">here</a></li>
-<li>Servo: follow the official <a href="https://docs.arduino.cc/libraries/servo/">Servo</a> API</li>
+<li>Servo: follow the official <a href="https://docs.arduino.cc/libraries/servo/">Servo</a> API, see also the <a href="built-in/Servo-library/">Servo reference</a></li>
 <li>SoftwareSerial: follow the official <a href="https://docs.arduino.cc/learn/built-in-libraries/software-serial/">SoftwareSerial</a> API.<br>
   It uses an <strong>hardware timer</strong>. Interrupt is triggered at a <code>frequency = Baudrate * OVERSAMPLE</code> (by default <em>3*baudrate</em>) to handle RX as well as TX transmissions.
   This impacts CPU load specially at high baudrate.</li>
-<li>SPI: follow the official <a href="https://docs.arduino.cc/language-reference/en/functions/communication/SPI/">SPI</a> API</li>
-<li>Wire (I2C): follow the official <a href="https://docs.arduino.cc/language-reference/en/functions/communication/Wire/">Wire</a> API</li>
+<li>SPI: follow the official <a href="https://docs.arduino.cc/language-reference/en/functions/communication/SPI/">SPI</a> API, see also the <a href="built-in/SPI-library/">STM32 SPI reference</a></li>
+<li>Wire (I2C): follow the official <a href="https://docs.arduino.cc/language-reference/en/functions/communication/Wire/">Wire</a> API, see also the <a href="built-in/I2C-library/">STM32 I2C reference</a></li>
 </ul>
 <h2 id="dedicated">Dedicated</h2>
 <p>Some libraries have been developed to support specific features (hardware or not):</p>
@@ -2928,9 +3040,6 @@ or have a look hereafter to see which one is available:</p>
 <li>
 <p><a href="https://github.com/stm32duino/LwIP">LwIP</a>: lightweight TCP/IP stack (LwIP) is a small independent implementation of the TCP/IP protocol suite</p>
 </li>
-</ul>
-<p>Dedicated <a href="dedicated/STM32Ethernet/">STM32Ethernet</a></p>
-<ul>
 <li>
 <p><a href="https://github.com/stm32duino/STM32FreeRTOS">STM32FreeRTOS</a>: this is a port of <a href="https://www.freertos.org/">FreeRTOS</a> for STM32 as Arduino libraries</p>
 </li>
@@ -2939,9 +3048,6 @@ or have a look hereafter to see which one is available:</p>
 </li>
 <li>
 <p><a href="https://github.com/stm32duino/STM32LowPower">STM32LowPower</a>: supports STM32 low-power modes. It depends on the following libraries:</p>
-</li>
-<li>
-<p><a href="https://github.com/stm32duino/STM32RTC">STM32RTC</a></p>
 </li>
 <li>
 <p><a href="https://github.com/stm32duino/STM32RTC">STM32RTC</a>: to support the real-time clock (RTC) controller embedded in the STM32 microcontrollers. It is based on the Arduino RTCZero library</p>
