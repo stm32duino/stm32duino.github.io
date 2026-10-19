@@ -1246,34 +1246,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../libraries/dedicated/STM32Ethernet/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    STM32Ethernet
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../libraries/dedicated/VL53L0X/" class="md-nav__link">
         
   
@@ -1532,6 +1504,34 @@
     
   
     HTS221
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://stm32duino.github.io/STM32Ethernet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    STM32Ethernet
   
 
     
@@ -2812,17 +2812,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#one-time-publishing-setup" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        One-time publishing setup
-      
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -2915,17 +2904,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#one-time-publishing-setup" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        One-time publishing setup
-      
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -2947,7 +2925,7 @@
 
 
 <h1 id="documentation-workflow">Documentation workflow</h1>
-<p>The STM32 core documentation is maintained in this repository under <code>docs/</code>. The pages migrated from the former GitHub wiki are now regular Markdown files; edit those files directly. There is no ongoing wiki synchronization.</p>
+<p>The STM32 core documentation is maintained in the <code>docs/</code> directory of the <code>stm32duino/Arduino_Core_STM32</code> repository. The pages migrated from the former GitHub wiki are now regular Markdown files; edit those files directly. There is no ongoing wiki synchronization.</p>
 <h2 id="update-documentation">Update documentation</h2>
 <ol>
 <li>Edit the relevant Markdown page under <code>docs/</code>, or add a new page there. Keep images and other static assets under <code>docs/img/</code> or alongside the page that uses them.</li>
@@ -2983,14 +2961,6 @@ python<span class="w"> </span>-m<span class="w"> </span>http.server<span class="
 <li>When the pushed tag is the highest semantic-version tag in the core repository, the workflow also moves the <code>latest</code> alias and sets it as the site default. Older release tags are published without changing <code>latest</code>.</li>
 </ul>
 <p>Use the normal core release process to create and push the release tag. The documentation workflow runs from that tag automatically; no manual Mike command is needed. GitHub release tags must use the exact <code>MAJOR.MINOR.PATCH</code> form for this workflow.</p>
-<h2 id="one-time-publishing-setup">One-time publishing setup</h2>
-<p>Before the first deployment, maintainers must:</p>
-<ol>
-<li>Install the publishing GitHub App on <code>stm32duino/stm32duino.github.io</code> and grant it <code>Contents: write</code> access to that repository. The app does not need to be installed on the core repository.</li>
-<li>Add the app ID as the <code>DOCS_PUBLISH_APP_ID</code> Actions secret and its private key as <code>DOCS_PUBLISH_APP_PRIVATE_KEY</code> in <code>stm32duino/Arduino_Core_STM32</code>.</li>
-<li>After the first successful publish creates <code>gh-pages</code>, configure GitHub Pages in <code>stm32duino/stm32duino.github.io</code> to publish from that branch's root. The existing content on <code>main</code> does not need to be copied.</li>
-</ol>
-<p>The workflow creates a short-lived, repository-scoped token at publish time. Do not store a personal access token in the repository secrets.</p>
 
 
 
