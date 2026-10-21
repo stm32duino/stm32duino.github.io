@@ -2,230 +2,230 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://stm32duino.github.io/dev/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://stm32duino.github.io/dev/API/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://stm32duino.github.io/dev/FAQ/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://stm32duino.github.io/dev/Getting-Started/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://stm32duino.github.io/dev/Getting-Started_V1/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://stm32duino.github.io/dev/HardwareTimer-library/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://stm32duino.github.io/dev/Pin-naming/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://stm32duino.github.io/dev/STM32MP1/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://stm32duino.github.io/dev/Upload-methods/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://stm32duino.github.io/dev/cmake/Advanced-usage/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://stm32duino.github.io/dev/cmake/Arduino-%28in%29compatibility/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://stm32duino.github.io/dev/cmake/Functions-reference/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://stm32duino.github.io/dev/cmake/Introduction-to-CMake/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://stm32duino.github.io/dev/cmake/Quickstart-guide/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://stm32duino.github.io/dev/cmake/STM32duino-CMake-Build-System/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://stm32duino.github.io/dev/cmake/Setup/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://stm32duino.github.io/dev/cmake/cubeIDE/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://stm32duino.github.io/dev/customization/Custom-board-based-on-a-core/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://stm32duino.github.io/dev/customization/Custom-definitions/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://stm32duino.github.io/dev/customization/Customize-build-options-using-build_opt.h/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://stm32duino.github.io/dev/customization/HAL-configuration/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://stm32duino.github.io/dev/development/Astyle/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://stm32duino.github.io/dev/development/Documentation-workflow/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://stm32duino.github.io/dev/development/Using-git-repository/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://stm32duino.github.io/dev/development/Where-are-sources/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://stm32duino.github.io/dev/development/Add-a-new-variant/dedicated-board/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://stm32duino.github.io/dev/development/Add-a-new-variant/generic-variant/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://stm32duino.github.io/dev/development/Add-a-new-variant/overview/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://stm32duino.github.io/dev/development/debug/How-to-debug/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://stm32duino.github.io/dev/development/debug/command-line-gdb/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://stm32duino.github.io/dev/development/debug/cubeclt-cortex-debug/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://stm32duino.github.io/dev/development/debug/eclipse-sloeber/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://stm32duino.github.io/dev/development/debug/platformio/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://stm32duino.github.io/dev/development/debug/troubleshooting/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://stm32duino.github.io/dev/development/debug/visualgdb/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://stm32duino.github.io/dev/development/ide/PlatformIO/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://stm32duino.github.io/dev/development/ide/overview/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://stm32duino.github.io/dev/examples/Blink-example/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://stm32duino.github.io/dev/examples/Examples/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://stm32duino.github.io/dev/libraries/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://stm32duino.github.io/dev/libraries/Hosted-library-documentation/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://stm32duino.github.io/dev/libraries/LoRa/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://stm32duino.github.io/dev/libraries/STM32duinoBLE/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://stm32duino.github.io/dev/libraries/additional-libraries/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://stm32duino.github.io/dev/libraries/built-in/CMSIS-DSP-library/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://stm32duino.github.io/dev/libraries/built-in/EEPROM-library/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://stm32duino.github.io/dev/libraries/built-in/I2C-library/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://stm32duino.github.io/dev/libraries/built-in/SPI-library/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://stm32duino.github.io/dev/libraries/built-in/Servo-library/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://stm32duino.github.io/dev/libraries/dedicated/LIS3MDL/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://stm32duino.github.io/dev/libraries/dedicated/LPS22HB/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://stm32duino.github.io/dev/libraries/dedicated/LSM6DSL/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://stm32duino.github.io/dev/libraries/dedicated/M24SR64-Y/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://stm32duino.github.io/dev/libraries/dedicated/MX25R6435F/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://stm32duino.github.io/dev/libraries/dedicated/SPBTLE-RF/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://stm32duino.github.io/dev/libraries/dedicated/VL53L0X/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://stm32duino.github.io/dev/supported-boards/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
 </urlset>
