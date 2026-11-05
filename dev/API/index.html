@@ -930,15 +930,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#hardwareserial" class="md-nav__link">
+  <a href="#uart" class="md-nav__link">
     <span class="md-ellipsis">
       
-        HardwareSerial
+        Uart
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="HardwareSerial">
+    <nav class="md-nav" aria-label="Uart">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3317,15 +3317,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#hardwareserial" class="md-nav__link">
+  <a href="#uart" class="md-nav__link">
     <span class="md-ellipsis">
       
-        HardwareSerial
+        Uart
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="HardwareSerial">
+    <nav class="md-nav" aria-label="Uart">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3629,7 +3629,7 @@ using one of the below options:</p>
 <p class="admonition-title">Warning</p>
 <p>This example is provided as-is and may require updates for device-specific datasheet values.</p>
 </div>
-<h3 id="hardwareserial">HardwareSerial</h3>
+<h3 id="uart">Uart</h3>
 <p>STM32 MCUs have several <em>U(S)ART</em> peripherals. For convenience, the <em>U(S)ART</em><strong>x</strong> number is used to define the <code>Serialx</code> instance:</p>
 <ul>
 <li><code>Serial1</code> for <code>USART1</code></li>
@@ -3645,9 +3645,9 @@ using one of the below options:</p>
 <li><code>SerialLP3</code> for <code>LPUART3</code></li>
 </ul>
 <p><strong>By default, only one <code>Serialx</code> instance is available mapped to the generic <code>Serial</code> name.</strong></p>
-<p>To use a second serial port, a <code>HardwareSerial</code> object should be declared in the sketch before the <code>setup()</code> function:
+<p>To use a second serial port, a <code>Uart</code> object should be declared in the sketch before the <code>setup()</code> function:
 <div class="highlight"><pre><span></span><code><span class="c1">//                      RX    TX</span>
-<span class="n">HardwareSerial</span><span class="w"> </span><span class="nf">Serial1</span><span class="p">(</span><span class="n">PA10</span><span class="p">,</span><span class="w"> </span><span class="n">PA9</span><span class="p">);</span>
+<span class="n">Uart</span><span class="w"> </span><span class="nf">Serial1</span><span class="p">(</span><span class="n">PA10</span><span class="p">,</span><span class="w"> </span><span class="n">PA9</span><span class="p">);</span>
 
 <span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="n">Serial1</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
@@ -3682,8 +3682,8 @@ using one of the below options:</p>
 <h5 id="change-default-serial-instance-pins">Change default <code>Serial</code> instance pins</h5>
 <p>It is also possible to change the default pins used by the <code>Serial</code> instance using above API:</p>
 <ul>
-<li><code>void setRx(uint32_t rx)</code></li>
-<li><code>void setTx(uint32_t tx)</code></li>
+<li><code>void setRx(pin_size_t rx)</code></li>
+<li><code>void setTx(pin_size_t tx)</code></li>
 <li><code>void setRx(PinName rx)</code></li>
 <li><code>void setTx(PinName tx)</code></li>
 </ul>
@@ -3698,19 +3698,19 @@ using one of the below options:</p>
 </code></pre></div>
 <h5 id="enable-half-duplex-mode">Enable half-duplex mode</h5>
 <p>Available in core version greater than <strong>1.7.0</strong></p>
-<p>It is now possible to set a <code>HardwareSerial</code> in half-duplex mode.</p>
+<p>It is now possible to set a <code>Uart</code> in half-duplex mode.</p>
 <p>The <code>U(S)ART</code> can be configured to follow a single-wire half-duplex protocol where the Tx and Rx lines are internally connected. In this communication mode, only the Tx pin is used for both transmission and reception.</p>
 <ul>
-<li>Extended <code>HardwareSerial</code> constructors:</li>
-<li><code>HardwareSerial(uint32_t _rxtx)</code>: U(S)ART Tx pin number (<code>PYn</code>) used for half-duplex</li>
-<li><code>HardwareSerial(PinName _rxtx)</code>: U(S)ART Tx pin name (<code>PY_n</code>) used for half-duplex</li>
+<li>Extended <code>Uart</code> constructors:</li>
+<li><code>Uart(pin_size_t _rxtx)</code>: U(S)ART Tx pin number (<code>PYn</code>) used for half-duplex</li>
+<li><code>Uart(PinName _rxtx)</code>: U(S)ART Tx pin name (<code>PY_n</code>) used for half-duplex</li>
 <li>if <code>Rx == Tx</code> then assume half-duplex mode:<ul>
-<li><code>HardwareSerial(uint32_t _rx, uint32_t _tx)</code>: U(S)ART Tx pin number (<code>PYn</code>) used for half-duplex</li>
-<li><code>HardwareSerial(PinName _rx, PinName tx)</code>: U(S)ART Tx pin name (<code>PY_n</code>) used for half-duplex</li>
+<li><code>Uart(pin_size_t _rx, pin_size_t _tx)</code>: U(S)ART Tx pin number (<code>PYn</code>) used for half-duplex</li>
+<li><code>Uart(PinName _rx, PinName tx)</code>: U(S)ART Tx pin name (<code>PY_n</code>) used for half-duplex</li>
 </ul>
 </li>
 <li>
-<p><code>HardwareSerial(void *peripheral, HalfDuplexMode_t halfDuplex = HALF_DUPLEX_DISABLED)</code>: if <code>HALF_DUPLEX_ENABLED</code> get the first Tx pin for requested peripheral in the<code>PeripheralPins.c</code> used for half-duplex</p>
+<p><code>Uart(void *peripheral, HalfDuplexMode_t halfDuplex = HALF_DUPLEX_DISABLED)</code>: if <code>HALF_DUPLEX_ENABLED</code> get the first Tx pin for requested peripheral in the<code>PeripheralPins.c</code> used for half-duplex</p>
 </li>
 <li>
 <p>Add <code>enableHalfDuplexRx()</code> to enable Serial in Rx mode. Doing a <code>read()</code> could be used but will avoid to perform a read. Useful before <code>available()</code> usage</p>
@@ -3721,26 +3721,26 @@ using one of the below options:</p>
 <p><code>Serial4</code> sends byte to <code>Serial3</code>, compare values then <code>Serial3</code> resend it to <code>Serial4</code> and compare.
 Require to connect <code>PA0</code> and<code>PB10</code>.</p>
 <p><em>All possible constructor are listed.</em></p>
-<div class="highlight"><pre><span></span><code><span class="n">HardwareSerial</span><span class="w"> </span><span class="nf">Serial3</span><span class="p">(</span><span class="n">PA0</span><span class="p">);</span>
-<span class="n">HardwareSerial</span><span class="w"> </span><span class="nf">Serial4</span><span class="p">(</span><span class="n">PB10</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="n">Uart</span><span class="w"> </span><span class="nf">Serial3</span><span class="p">(</span><span class="n">PA0</span><span class="p">);</span>
+<span class="n">Uart</span><span class="w"> </span><span class="nf">Serial4</span><span class="p">(</span><span class="n">PB10</span><span class="p">);</span>
 
-<span class="c1">//HardwareSerial Serial3(PA_0);</span>
-<span class="c1">//HardwareSerial Serial4(PB_10);</span>
+<span class="c1">//Uart Serial3(PA_0);</span>
+<span class="c1">//Uart Serial4(PB_10);</span>
 
-<span class="c1">//HardwareSerial Serial3(UART4, HALF_DUPLEX_ENABLED);</span>
-<span class="c1">//HardwareSerial Serial4(USART3, HALF_DUPLEX_ENABLED);</span>
+<span class="c1">//Uart Serial3(UART4, HALF_DUPLEX_ENABLED);</span>
+<span class="c1">//Uart Serial4(USART3, HALF_DUPLEX_ENABLED);</span>
 
-<span class="c1">//HardwareSerial Serial3(PA0, PA0);</span>
-<span class="c1">//HardwareSerial Serial4(PB10, PB10);</span>
+<span class="c1">//Uart Serial3(PA0, PA0);</span>
+<span class="c1">//Uart Serial4(PB10, PB10);</span>
 
-<span class="c1">//HardwareSerial Serial3(PA_0, PA_0);</span>
-<span class="c1">//HardwareSerial Serial4(PB_10, PB_10);</span>
+<span class="c1">//Uart Serial3(PA_0, PA_0);</span>
+<span class="c1">//Uart Serial4(PB_10, PB_10);</span>
 
-<span class="c1">//HardwareSerial Serial3(NC, PA_0);</span>
-<span class="c1">//HardwareSerial Serial4(NC, PB_10);</span>
+<span class="c1">//Uart Serial3(NC, PA_0);</span>
+<span class="c1">//Uart Serial4(NC, PB_10);</span>
 
-<span class="c1">//HardwareSerial Serial3(NUM_DIGITAL_PINS, PA0);</span>
-<span class="c1">//HardwareSerial Serial4(NUM_DIGITAL_PINS, PB10);</span>
+<span class="c1">//Uart Serial3(NUM_DIGITAL_PINS, PA0);</span>
+<span class="c1">//Uart Serial4(NUM_DIGITAL_PINS, PB10);</span>
 
 <span class="k">static</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">nbTestOK</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="k">static</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">nbTestKO</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
@@ -3814,23 +3814,23 @@ Require to connect <code>PA0</code> and<code>PB10</code>.</p>
 <h5 id="enable-hardware-flow-control">Enable hardware flow control</h5>
 <p>Available in core version <strong>2.3.0</strong> or later</p>
 <ul>
-<li><code>HardwareSerial</code> constructors accept optional RTS/CTS pins:</li>
-<li><code>HardwareSerial(uint32_t _rx, uint32_t _tx, uint32_t _rts = NUM_DIGITAL_PINS, uint32_t _cts = NUM_DIGITAL_PINS)</code></li>
-<li><code>HardwareSerial(PinName _rx, PinName _tx, PinName _rts = NC, PinName _cts = NC)</code></li>
-<li>You can also enable RTS/CTS pins on <code>HardwareSerial</code> instances:</li>
-<li><code>void setRts(uint32_t _rts)</code></li>
-<li><code>void setCts(uint32_t _cts)</code></li>
-<li><code>void setRtsCts(uint32_t _rts, uint32_t _cts)</code></li>
+<li><code>Uart</code> constructors accept optional RTS/CTS pins:</li>
+<li><code>Uart(pin_size_t _rx, pin_size_t _tx, pin_size_t _rts = NUM_DIGITAL_PINS, pin_size_t _cts = NUM_DIGITAL_PINS)</code></li>
+<li><code>Uart(PinName _rx, PinName _tx, PinName _rts = NC, PinName _cts = NC)</code></li>
+<li>You can also enable RTS/CTS pins on <code>Uart</code> instances:</li>
+<li><code>void setRts(pin_size_t _rts)</code></li>
+<li><code>void setCts(pin_size_t _cts)</code></li>
+<li><code>void setRtsCts(pin_size_t _rts, pin_size_t _cts)</code></li>
 <li><code>void setRts(PinName _rts)</code></li>
 <li><code>void setCts(PinName _cts)</code></li>
 <li><code>void setRtsCts(PinName _rts, PinName _cts)</code></li>
 </ul>
 <h6 id="example_4">Example:</h6>
 <div class="highlight"><pre><span></span><code><span class="c1">// Enable hardware flow control on construction.</span>
-<span class="n">HardwareSerial</span><span class="w"> </span><span class="nf">serial</span><span class="p">(</span><span class="n">PA10</span><span class="p">,</span><span class="w"> </span><span class="n">PA9</span><span class="p">,</span><span class="w"> </span><span class="n">PA12</span><span class="p">,</span><span class="w"> </span><span class="n">PA11</span><span class="p">);</span>
+<span class="n">Uart</span><span class="w"> </span><span class="nf">serial</span><span class="p">(</span><span class="n">PA10</span><span class="p">,</span><span class="w"> </span><span class="n">PA9</span><span class="p">,</span><span class="w"> </span><span class="n">PA12</span><span class="p">,</span><span class="w"> </span><span class="n">PA11</span><span class="p">);</span>
 
 <span class="c1">// Or, enable later (but before calling begin()).</span>
-<span class="n">HardwareSerial</span><span class="w"> </span><span class="nf">serial</span><span class="p">(</span><span class="n">PA10</span><span class="p">,</span><span class="w"> </span><span class="n">PA9</span><span class="p">);</span>
+<span class="n">Uart</span><span class="w"> </span><span class="nf">serial</span><span class="p">(</span><span class="n">PA10</span><span class="p">,</span><span class="w"> </span><span class="n">PA9</span><span class="p">);</span>
 <span class="n">serial</span><span class="p">.</span><span class="n">setRtsCts</span><span class="p">(</span><span class="n">PA12</span><span class="p">,</span><span class="w"> </span><span class="n">PA11</span><span class="p">);</span>
 <span class="n">serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">460800</span><span class="p">);</span>
 </code></pre></div>
@@ -3839,10 +3839,10 @@ Require to connect <code>PA0</code> and<code>PB10</code>.</p>
 <p>The U(S)ART Tx and Rx pin signal values can be inverted (VDD = 0/mark, Gnd = 1/idle), and the U(S)ART can send and receive data in negative/inverse logic (1 = L, 0 = H); the
 parity bit is also inverted.</p>
 <ul>
-<li>Enable Tx and Rx active level inversion on <code>HardwareSerial</code> instances, respectively:</li>
+<li>Enable Tx and Rx active level inversion on <code>Uart</code> instances, respectively:</li>
 <li><code>void setTxInvert(void)</code></li>
 <li><code>void setRxInvert(void)</code></li>
-<li>Enable data inversion on <code>HardwareSerial</code> instances:</li>
+<li>Enable data inversion on <code>Uart</code> instances:</li>
 <li><code>void setDataInvert(void)</code></li>
 </ul>
 <h3 id="hardwaretimer-library">HardwareTimer library</h3>
