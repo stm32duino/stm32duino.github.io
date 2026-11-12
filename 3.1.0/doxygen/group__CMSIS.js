@@ -1,0 +1,28 @@
+var group__CMSIS =
+[
+    [ "Stm32c0xx_system", "group__stm32c0xx__system.html", "group__stm32c0xx__system" ],
+    [ "STM32C5xx_system", "group__STM32C5xx__system.html", "group__STM32C5xx__system" ],
+    [ "Stm32f0xx_system", "group__stm32f0xx__system.html", "group__stm32f0xx__system" ],
+    [ "Stm32f1xx_system", "group__stm32f1xx__system.html", "group__stm32f1xx__system" ],
+    [ "Stm32f2xx_system", "group__stm32f2xx__system.html", "group__stm32f2xx__system" ],
+    [ "Stm32f3xx_system", "group__stm32f3xx__system.html", "group__stm32f3xx__system" ],
+    [ "Stm32f4xx_system", "group__stm32f4xx__system.html", "group__stm32f4xx__system" ],
+    [ "Stm32f7xx_system", "group__stm32f7xx__system.html", "group__stm32f7xx__system" ],
+    [ "Stm32g0xx_system", "group__stm32g0xx__system.html", "group__stm32g0xx__system" ],
+    [ "Stm32g4xx_system", "group__stm32g4xx__system.html", "group__stm32g4xx__system" ],
+    [ "STM32H5xx_system", "group__STM32H5xx__system.html", "group__STM32H5xx__system" ],
+    [ "Stm32h7xx_system", "group__stm32h7xx__system.html", "group__stm32h7xx__system" ],
+    [ "Stm32l0xx_system", "group__stm32l0xx__system.html", "group__stm32l0xx__system" ],
+    [ "Stm32l1xx_system", "group__stm32l1xx__system.html", "group__stm32l1xx__system" ],
+    [ "Stm32l4xx_system", "group__stm32l4xx__system.html", "group__stm32l4xx__system" ],
+    [ "STM32L5xx_System", "group__STM32L5xx__System.html", "group__STM32L5xx__System" ],
+    [ "Stm32mp1xx_system", "group__stm32mp1xx__system.html", "group__stm32mp1xx__system" ],
+    [ "Stm32u0xx_system", "group__stm32u0xx__system.html", "group__stm32u0xx__system" ],
+    [ "STM32U3xx_system", "group__STM32U3xx__system.html", "group__STM32U3xx__system" ],
+    [ "STM32U5xx_system", "group__STM32U5xx__system.html", "group__STM32U5xx__system" ],
+    [ "STM32WB0x_system", "group__STM32WB0x__system.html", "group__STM32WB0x__system" ],
+    [ "STM32WBAxx_system", "group__STM32WBAxx__system.html", "group__STM32WBAxx__system" ],
+    [ "Stm32WBxx_system", "group__stm32WBxx__system.html", "group__stm32WBxx__system" ],
+    [ "STM32WL3x_system", "group__STM32WL3x__system.html", "group__STM32WL3x__system" ],
+    [ "Stm32WLxx_system", "group__stm32WLxx__system.html", "group__stm32WLxx__system" ]
+];
