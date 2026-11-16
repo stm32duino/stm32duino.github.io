@@ -14,7 +14,7 @@ var classSubGhzClass =
     [ "isResetActive", "classSubGhzClass.html#a4eb2263212d042a28fc7b18657cddbd0", null ],
     [ "setNssActive", "classSubGhzClass.html#a9e8be13bba022f7cf3ff0338978cc95c", null ],
     [ "setResetActive", "classSubGhzClass.html#a53e826837012ced24cc67533ab02cf4b", null ],
-    [ "SUBGHZ_Radio_IRQHandler", "classSubGhzClass.html#ab185e9a29e26487d6de821a4e704681c", null ],
+    [ "SUBGHZ_Radio_IRQHandler", "classSubGhzClass.html#a5d123bfeba2312f4ce449f1e78bab9ac", null ],
     [ "SPI", "classSubGhzClass.html#ae637db5e4bf95c36cab2abcc5068e626", null ],
     [ "spi_settings", "classSubGhzClass.html#ad5d0496b3a2e1d3830eb6912cdd01e51", null ]
 ];

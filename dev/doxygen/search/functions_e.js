@@ -15,7 +15,7 @@ var searchData=
   ['pinmap_5fpin_12',['pinmap_pin',['../group__hal.html#ga78bc6bcb1540e816952b9e1684cf230b',1,'pinmap_pin(void *peripheral, const PinMap *map):&#160;pinmap.c'],['../group__hal.html#ga78bc6bcb1540e816952b9e1684cf230b',1,'pinmap_pin(void *peripheral, const PinMap *map):&#160;pinmap.c']]],
   ['pinmap_5fpinout_13',['pinmap_pinout',['../group__hal.html#ga6dad6e87e1855c89644f2954b09c0eef',1,'pinmap_pinout(PinName pin, const PinMap *map):&#160;pinmap.c'],['../group__hal.html#ga6dad6e87e1855c89644f2954b09c0eef',1,'pinmap_pinout(PinName pin, const PinMap *map):&#160;pinmap.c']]],
   ['pinmode_14',['pinMode',['../wiring__digital_8c.html#adf57f2d837e01e166bda1f583576d275',1,'wiring_digital.c']]],
-  ['pinnametodigitalpin_15',['pinnametodigitalpin',['../pins__arduino_8c.html#afce8dede0ce40974d4a97c8639f5f860',1,'pinNametoDigitalPin(PinName p):&#160;pins_arduino.c'],['../pins__arduino_8h.html#a869449044a367857b4c505f8d801475e',1,'pinNametoDigitalPin(PinName p):&#160;pins_arduino.c']]],
+  ['pinnametodigitalpin_15',['pinNametoDigitalPin',['../pins__arduino_8c.html#afce8dede0ce40974d4a97c8639f5f860',1,'pinNametoDigitalPin(PinName p):&#160;pins_arduino.c'],['../pins__arduino_8h.html#a869449044a367857b4c505f8d801475e',1,'pinNametoDigitalPin(PinName p):&#160;pins_arduino.c']]],
   ['premain_16',['premain',['../main_8cpp.html#af8b5fb939aed48c43e25586e98b02883',1,'main.cpp']]],
   ['pulsein_17',['pulseIn',['../wiring__pulse_8cpp.html#a9a8771841925115005aa4dfd6bc77475',1,'wiring_pulse.cpp']]],
   ['pulseinlong_18',['pulseInLong',['../wiring__pulse_8cpp.html#a29510e13daf90c9549da34da7b3fefda',1,'wiring_pulse.cpp']]],

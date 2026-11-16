@@ -14,7 +14,7 @@ var searchData=
   ['getcapturecompare_11',['getCaptureCompare',['../classHardwareTimer.html#ae53de5406feb20b3da3d4629195c7c65',1,'HardwareTimer']]],
   ['getchannel_12',['getChannel',['../classHardwareTimer.html#a24ea930e4a8da3b54a5c2dd1ebbe424a',1,'HardwareTimer']]],
   ['getcount_13',['getCount',['../classHardwareTimer.html#a424d137b7ef60fa92b8330d0edbf2ebc',1,'HardwareTimer']]],
-  ['gethandle_14',['gethandle',['../classHardwareTimer.html#a9d0600db4741d17d3d72b58cc817f5a9',1,'HardwareTimer::getHandle()'],['../classTwoWire.html#ab6cbcc4d8752b7024a6e73a6093dd81d',1,'TwoWire::getHandle()'],['../classSPIClass.html#ab5b030290485e8d2aaf16e77422ea7ba',1,'SPIClass::getHandle()'],['../classUart.html#ad281df5d5cf10e2531b59f6b46c2105c',1,'Uart::getHandle()']]],
+  ['gethandle_14',['getHandle',['../classUart.html#ad281df5d5cf10e2531b59f6b46c2105c',1,'Uart::getHandle()'],['../classSPIClass.html#ab5b030290485e8d2aaf16e77422ea7ba',1,'SPIClass::getHandle()'],['../classHardwareTimer.html#a9d0600db4741d17d3d72b58cc817f5a9',1,'HardwareTimer::getHandle()'],['../classTwoWire.html#ab6cbcc4d8752b7024a6e73a6093dd81d',1,'TwoWire::getHandle()']]],
   ['getllchannel_15',['getLLChannel',['../classHardwareTimer.html#a0751251f3c642ca34ece8066f96ad0a6',1,'HardwareTimer']]],
   ['getmode_16',['getMode',['../classHardwareTimer.html#a5569bcdde903577f224b6310edeb1249',1,'HardwareTimer']]],
   ['getoverflow_17',['getOverflow',['../classHardwareTimer.html#ac68b02a141d53aba3c732c8346f17c05',1,'HardwareTimer']]],

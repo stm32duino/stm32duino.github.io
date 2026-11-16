@@ -6,15 +6,8 @@ var twi_8c =
     [ "SLAVE_MODE_LISTEN", "twi_8c.html#a84800fba5f618acfdab94c665621d481", null ],
     [ "SLAVE_MODE_RECEIVE", "twi_8c.html#a15772ab243b5cb98c97f4c39f6b627dc", null ],
     [ "SLAVE_MODE_TRANSMIT", "twi_8c.html#ad3a3ef18c8d2bb0dfce416ee2345981c", null ],
-    [ "i2c_index_t", "twi_8c.html#a63682b5b7984338194e4526fecb99efb", [
-      [ "I2C_NUM", "twi_8c.html#a63682b5b7984338194e4526fecb99efbaa98d5326f151b50bdcc6851949cc78c5", null ]
-    ] ],
-    [ "I2C_speed_freq_t", "twi_8c.html#aabec92e379a53a1e585bb8013c93e1a4", [
-      [ "I2C_SPEED_FREQ_STANDARD", "twi_8c.html#aabec92e379a53a1e585bb8013c93e1a4a057fc24e555abc41e0999a2180c8cedf", null ],
-      [ "I2C_SPEED_FREQ_FAST", "twi_8c.html#aabec92e379a53a1e585bb8013c93e1a4aeab2fdb433e4015711d29b79bd0cc834", null ],
-      [ "I2C_SPEED_FREQ_FAST_PLUS", "twi_8c.html#aabec92e379a53a1e585bb8013c93e1a4a506cf774f2b9c30c28db1b72ad5a2d48", null ],
-      [ "I2C_SPEED_FREQ_NUMBER", "twi_8c.html#aabec92e379a53a1e585bb8013c93e1a4a95394382a72552420a708fb2ffed1ff6", null ]
-    ] ],
+    [ "i2c_index_t", "twi_8c.html#a63682b5b7984338194e4526fecb99efb", null ],
+    [ "I2C_speed_freq_t", "twi_8c.html#aabec92e379a53a1e585bb8013c93e1a4", null ],
     [ "get_i2c_obj", "twi_8c.html#ae331a8971e49a1f5dc86bac568817462", null ],
     [ "HAL_I2C_AddrCallback", "twi_8c.html#a3b2a6a0ff585d8e529a73ba7d291c92d", null ],
     [ "HAL_I2C_ErrorCallback", "twi_8c.html#a4d5338cd64a656dfdc4154773bc4f05d", null ],

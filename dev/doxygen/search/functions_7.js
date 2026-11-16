@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['get_0',['get',['../classIWatchdogClass.html#a58e6ab646f1eb70ed67348091abc8627',1,'IWatchdogClass::get()'],['../structEEPROMClass.html#aa285c3e379a8dabaa67b1d6cc87a177d',1,'EEPROMClass::get()']]],
+  ['get_0',['get',['../structEEPROMClass.html#aa285c3e379a8dabaa67b1d6cc87a177d',1,'EEPROMClass::get()'],['../classIWatchdogClass.html#a58e6ab646f1eb70ed67348091abc8627',1,'IWatchdogClass::get()']]],
   ['get_5fadc_5fchannel_1',['get_adc_channel',['../analog_8h.html#a30ab71df91c91ccb1fa0f8f636eb5dd1',1,'analog.cpp']]],
   ['get_5fadc_5finternal_5fchannel_2',['get_adc_internal_channel',['../analog_8h.html#a87d6638632f74ef947799fa68df86390',1,'analog.cpp']]],
   ['get_5fdac_5fchannel_3',['get_dac_channel',['../analog_8h.html#a81fe80e89eabfafe16b82ecc463ab7b8',1,'analog.cpp']]],
@@ -12,7 +12,7 @@ var searchData=
   ['getcapturecompare_9',['getCaptureCompare',['../classHardwareTimer.html#ae53de5406feb20b3da3d4629195c7c65',1,'HardwareTimer']]],
   ['getchannel_10',['getChannel',['../classHardwareTimer.html#a24ea930e4a8da3b54a5c2dd1ebbe424a',1,'HardwareTimer']]],
   ['getcount_11',['getCount',['../classHardwareTimer.html#a424d137b7ef60fa92b8330d0edbf2ebc',1,'HardwareTimer']]],
-  ['gethandle_12',['gethandle',['../classHardwareTimer.html#a9d0600db4741d17d3d72b58cc817f5a9',1,'HardwareTimer::getHandle()'],['../classTwoWire.html#ab6cbcc4d8752b7024a6e73a6093dd81d',1,'TwoWire::getHandle()'],['../classSPIClass.html#ab5b030290485e8d2aaf16e77422ea7ba',1,'SPIClass::getHandle()'],['../classUart.html#ad281df5d5cf10e2531b59f6b46c2105c',1,'Uart::getHandle()']]],
+  ['gethandle_12',['getHandle',['../classUart.html#ad281df5d5cf10e2531b59f6b46c2105c',1,'Uart::getHandle()'],['../classSPIClass.html#ab5b030290485e8d2aaf16e77422ea7ba',1,'SPIClass::getHandle()'],['../classHardwareTimer.html#a9d0600db4741d17d3d72b58cc817f5a9',1,'HardwareTimer::getHandle()'],['../classTwoWire.html#ab6cbcc4d8752b7024a6e73a6093dd81d',1,'TwoWire::getHandle()']]],
   ['getllchannel_13',['getLLChannel',['../classHardwareTimer.html#a0751251f3c642ca34ece8066f96ad0a6',1,'HardwareTimer']]],
   ['getmode_14',['getMode',['../classHardwareTimer.html#a5569bcdde903577f224b6310edeb1249',1,'HardwareTimer']]],
   ['getoverflow_15',['getOverflow',['../classHardwareTimer.html#ac68b02a141d53aba3c732c8346f17c05',1,'HardwareTimer']]],

@@ -63,8 +63,9 @@ var NAVTREEINDEX =
 "group__STM32WB0x__System__Private__Defines.html",
 "stm32f0xx__hal__conf__default_8h.html#a83f109da654b670743786c6a45284b96",
 "stm32wb0x__hal__conf__default_8h.html#ab4c1548409c388cb6fe005bf26f242ee",
-"twi_8h.html#a8e86c49719df3fdcf8600a12d8cf7b73"
+"twi_8h.html#aa8cf2eb929a5172f606a444099c6e447a2d24145dd6f2212d7b5b43b29dac2d33"
 ];
 
-var SYNCONMSG = 'click to disable panel synchronisation';
-var SYNCOFFMSG = 'click to enable panel synchronisation';
+var SYNCONMSG = 'click to disable panel synchronization';
+var SYNCOFFMSG = 'click to enable panel synchronization';
+var LISTOFALLMEMBERS = 'List of all members';

@@ -18,5 +18,5 @@ var searchData=
   ['clearpendinginterrupt_15',['clearPendingInterrupt',['../classSubGhzClass.html#a95372ff965f846a278f8404280899096',1,'SubGhzClass']]],
   ['clearreset_16',['clearReset',['../classIWatchdogClass.html#afc30d9a387403409228af3da3e07acf9',1,'IWatchdogClass']]],
   ['core_5fdebug_17',['core_debug',['../core__debug_8c.html#a07a27e6b0b3d3fd0e63ee825c2902683',1,'core_debug(const char *format,...):&#160;core_debug.h'],['../core__debug_8h.html#a07a27e6b0b3d3fd0e63ee825c2902683',1,'core_debug(const char *format,...):&#160;core_debug.h']]],
-  ['cpucontextrestore_18',['cpucontextrestore',['../group__STM32WB0x__System__Private__FunctionPrototypes.html#gae9b3904e0416186c5a0b77a7ab4de3fc',1,'CPUcontextRestore(void):&#160;system_stm32wb0x.c'],['../group__STM32WL3x__System__Private__FunctionPrototypes.html#gae9b3904e0416186c5a0b77a7ab4de3fc',1,'CPUcontextRestore(void):&#160;system_stm32wl3x.c']]]
+  ['cpucontextrestore_18',['CPUcontextRestore',['../group__STM32WB0x__System__Private__FunctionPrototypes.html#gae9b3904e0416186c5a0b77a7ab4de3fc',1,'CPUcontextRestore(void):&#160;system_stm32wb0x.c'],['../group__STM32WL3x__System__Private__FunctionPrototypes.html#gae9b3904e0416186c5a0b77a7ab4de3fc',1,'CPUcontextRestore(void):&#160;system_stm32wl3x.c']]]
 ];
