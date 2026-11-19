@@ -737,6 +737,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#builds-are-very-slow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Builds are very slow
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2987,6 +2998,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#builds-are-very-slow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Builds are very slow
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3100,6 +3122,55 @@ that issue is explored in this thread
 <h3 id="windows">Windows:</h3>
 <h4 id="when-using-bmp-black-magic-probe-upload-method-error-occurs-it-cant-connect-to-the-com-port">When using "BMP (Black Magic Probe)" upload method, error occurs it can't connect to the COM port.</h4>
 <p>Refers to this <a href="../Upload-methods/#bmp-black-magic-probe">warning</a></p>
+<h4 id="builds-are-very-slow">Builds are very slow</h4>
+<p>Compiling a sketch involves the core, the HAL and the libraries, which is thousands of small files and many short-lived
+compiler processes. On Windows, real-time antivirus scanning (e.g. Microsoft Defender, Microsoft Defender for Endpoint)
+scans each of them, which can multiply the build time.</p>
+<p>Excluding the build-related folders from real-time scanning usually gives the biggest improvement.
+Only exclude folders you trust.</p>
+<p>Folders to exclude (replace <code>&lt;user&gt;</code> with your user name):</p>
+<table>
+<thead>
+<tr>
+<th>Path</th>
+<th>Content</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>C:\Users\&lt;user&gt;\AppData\Local\Arduino15</code></td>
+<td>Cores, HAL, toolchain (<code>arm-none-eabi-gcc</code>), tools and libraries installed by the Boards/Library Manager</td>
+</tr>
+<tr>
+<td><code>C:\Users\&lt;user&gt;\AppData\Local\arduino</code></td>
+<td>Arduino IDE 2 / <code>arduino-cli</code> cache and build folders</td>
+</tr>
+<tr>
+<td><code>C:\Users\&lt;user&gt;\AppData\Local\Programs\Arduino IDE</code></td>
+<td>Arduino IDE 2 installation, including <code>arduino-cli.exe</code></td>
+</tr>
+<tr>
+<td><code>C:\Users\&lt;user&gt;\AppData\Local\Temp\.arduinoIDE-*</code></td>
+<td>Arduino IDE 2 temporary files</td>
+</tr>
+<tr>
+<td><code>C:\Users\&lt;user&gt;\Documents\Arduino</code></td>
+<td>Default sketchbook location (use your own if you changed it in the IDE <em>Preferences</em>)</td>
+</tr>
+</tbody>
+</table>
+<p>The temporary build folder location can be checked by enabling <em>Show verbose output during compilation</em> in the IDE
+<em>Preferences</em>: look for the <code>--build-path</code> value in the output.</p>
+<p>If your policy allows process exclusions, also add <code>arm-none-eabi-gcc.exe</code>, <code>arm-none-eabi-g++.exe</code>, <code>cc1.exe</code>,
+<code>cc1plus.exe</code>, <code>as.exe</code>, <code>ld.exe</code>, <code>collect2.exe</code>, <code>busybox.exe</code> and <code>arduino-cli.exe</code>.</p>
+<p>On a managed computer, exclusions are usually defined by your IT department. Give them the list above.</p>
+<p>Other things that help:</p>
+<ul>
+<li>Keep the build folder on an SSD and do not clean it between builds: changing the board menu options (e.g. optimization,
+  USB support) invalidates the cached core and forces a full recompilation.</li>
+<li>Use a short sketch path.</li>
+<li>Use <em>Warnings: None</em> and keep the verbose output disabled.</li>
+</ul>
 
 
 
