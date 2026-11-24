@@ -1,5 +1,6 @@
 var NAVTREEINDEX4 =
 {
+"stm32f0xx__hal__conf__default_8h.html#a7bbb9d19e5189a6ccd0fb6fa6177d20d":[3,0,2,2,0,8],
 "stm32f0xx__hal__conf__default_8h.html#a83f109da654b670743786c6a45284b96":[3,0,2,2,0,5],
 "stm32f0xx__hal__conf__default_8h.html#a85e6fc812dc26f7161a04be2568a5462":[3,0,2,2,0,7],
 "stm32f0xx__hal__conf__default_8h.html#aaa8c76e274d0f6dd2cefb5d0b17fbc37":[3,0,2,2,0,6],
@@ -248,6 +249,5 @@ var NAVTREEINDEX4 =
 "stm32wb0x__hal__conf__default_8h.html#a6e9998b681f694f38398d2af7af6dc05":[3,0,2,20,0,13],
 "stm32wb0x__hal__conf__default_8h.html#a7bbb9d19e5189a6ccd0fb6fa6177d20d":[3,0,2,20,0,8],
 "stm32wb0x__hal__conf__default_8h.html#a85e6fc812dc26f7161a04be2568a5462":[3,0,2,20,0,7],
-"stm32wb0x__hal__conf__default_8h.html#aaa8c76e274d0f6dd2cefb5d0b17fbc37":[3,0,2,20,0,5],
-"stm32wb0x__hal__conf__default_8h.html#aae550dad9f96d52cfce5e539adadbbb4":[3,0,2,20,0,15]
+"stm32wb0x__hal__conf__default_8h.html#aaa8c76e274d0f6dd2cefb5d0b17fbc37":[3,0,2,20,0,5]
 };

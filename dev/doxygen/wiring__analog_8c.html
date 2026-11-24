@@ -122,6 +122,8 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:add3fc75aa101f128f0542f1a3889852e" id="r_add3fc75aa101f128f0542f1a3889852e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#add3fc75aa101f128f0542f1a3889852e">analog_output_stop</a> (PinName pin)</td></tr>
+<tr class="memdesc:add3fc75aa101f128f0542f1a3889852e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stop the analog output (PWM or DAC) of a pin.  <br /></td></tr>
 <tr class="memitem:a0afe11e8f5ce38a44582839cca4ee724" id="r_a0afe11e8f5ce38a44582839cca4ee724"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0afe11e8f5ce38a44582839cca4ee724">mapResolution</a> (uint32_t value, uint32_t from, uint32_t to)</td></tr>
 <tr class="memdesc:a0afe11e8f5ce38a44582839cca4ee724"><td class="mdescLeft">&#160;</td><td class="mdescRight">Map a value from one resolution to another.  <br /></td></tr>
 <tr class="memitem:a3cdd7c1933a0cadb2399e77d795e84c8" id="r_a3cdd7c1933a0cadb2399e77d795e84c8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3cdd7c1933a0cadb2399e77d795e84c8">analogReadResolution</a> (int res)</td></tr>
@@ -139,8 +141,6 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a344257465e3b0698556e96d4615dece3" id="r_a344257465e3b0698556e96d4615dece3"><td class="memItemLeft" align="right" valign="top"><a id="a344257465e3b0698556e96d4615dece3" name="a344257465e3b0698556e96d4615dece3"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>g_anOutputPinConfigured</b> [MAX_NB_PORT] = {0}</td></tr>
 <tr class="memitem:a2fa48845946098c416ac6ed90a9bbb10" id="r_a2fa48845946098c416ac6ed90a9bbb10"><td class="memItemLeft" align="right" valign="top"><a id="a2fa48845946098c416ac6ed90a9bbb10" name="a2fa48845946098c416ac6ed90a9bbb10"></a>
 static int&#160;</td><td class="memItemRight" valign="bottom"><b>_writeResolution</b> = <a class="el" href="pins__arduino_8h.html#ad53655e6cac4dfd2c67ecda5eea77a4e">PWM_RESOLUTION</a></td></tr>
 <tr class="memitem:a59e849ade2ef357a18f3243f1010613c" id="r_a59e849ade2ef357a18f3243f1010613c"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a59e849ade2ef357a18f3243f1010613c">_internalWriteResolution</a></td></tr>
@@ -153,6 +153,31 @@ static int&#160;</td><td class="memItemRight" valign="bottom"><b>_readResolution
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Analog input (ADC) and analog output (PWM or DAC) functions. </p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a id="add3fc75aa101f128f0542f1a3889852e" name="add3fc75aa101f128f0542f1a3889852e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add3fc75aa101f128f0542f1a3889852e">&#9670;&#160;</a></span>analog_output_stop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void analog_output_stop </td>
+          <td>(</td>
+          <td class="paramtype">PinName</td>          <td class="paramname"><span class="paramname"><em>pin</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Stop the analog output (PWM or DAC) of a pin. </p>
+<p>Called by <a class="el" href="wiring__digital_8c.html#adf57f2d837e01e166bda1f583576d275" title="Set the mode of a pin.">pinMode()</a>. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pin</td><td>Pin name. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="ad313d06f98ae84f250d008ef8cf1df68" name="ad313d06f98ae84f250d008ef8cf1df68"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad313d06f98ae84f250d008ef8cf1df68">&#9670;&#160;</a></span>analogRead()</h2>
 

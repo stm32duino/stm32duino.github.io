@@ -1,5 +1,6 @@
 var NAVTREEINDEX5 =
 {
+"stm32wb0x__hal__conf__default_8h.html#aae550dad9f96d52cfce5e539adadbbb4":[3,0,2,20,0,15],
 "stm32wb0x__hal__conf__default_8h.html#ab4c1548409c388cb6fe005bf26f242ee":[3,0,2,20,0,2],
 "stm32wb0x__hal__conf__default_8h.html#acc33abd5393affd16cc4a1397839dfe4":[3,0,2,20,0,12],
 "stm32wb0x__hal__conf__default_8h.html#adf34d1b266a5b476f56d0371fa89d408":[3,0,2,20,0,10],
@@ -34,7 +35,7 @@ var NAVTREEINDEX5 =
 "stm32wlxx__hal__conf__default_8h.html#acc33abd5393affd16cc4a1397839dfe4":[3,0,2,24,0,10],
 "stm32wlxx__hal__conf__default_8h.html#ae27809d4959b9fd5b5d974e3e1c77d2e":[3,0,2,24,0,9],
 "stm32wlxx__hal__conf__default_8h.html#aeafcff4f57440c60e64812dddd13e7cb":[3,0,2,24,0,2],
-"stm32yyxx__hal__conf_8h.html":[3,0,0,0,1,2],
+"stm32yyxx__hal__conf_8h.html":[3,0,0,0,1,3],
 "structCDC__ReceiveQueue__TypeDef.html":[2,0,1],
 "structCDC__ReceiveQueue__TypeDef.html#a309b8fd2b7f6291dd37e0f6c31e459cf":[2,0,1,2],
 "structCDC__ReceiveQueue__TypeDef.html#a66c27164ad52fc9883f4308fa41164d4":[2,0,1,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX5 =
 "twi_8h.html#a8e86c49719df3fdcf8600a12d8cf7b73":[3,0,1,6,0,0,1,10],
 "twi_8h.html#a961049c98962c02d7e587e1290a476c4":[3,0,1,6,0,0,1,11],
 "twi_8h.html#aa8cf2eb929a5172f606a444099c6e447":[3,0,1,6,0,0,1,6],
-"twi_8h.html#aa8cf2eb929a5172f606a444099c6e447a1056d6a4b037e383132309c2898a2fc8":[3,0,1,6,0,0,1,6,5],
-"twi_8h.html#aa8cf2eb929a5172f606a444099c6e447a208fe5137c571cb6103bb601a5f1b451":[3,0,1,6,0,0,1,6,2]
+"twi_8h.html#aa8cf2eb929a5172f606a444099c6e447a1056d6a4b037e383132309c2898a2fc8":[3,0,1,6,0,0,1,6,5]
 };

@@ -15,5 +15,6 @@ var searchData=
   ['_5fread_12',['_read',['../syscalls_8c.html#a4f9bf1e1602f2828e0a54e70c3b2dccb',1,'syscalls.c']]],
   ['_5frx_5fcomplete_5firq_13',['_rx_complete_irq',['../classUart.html#ad548c7b8f4d9389b4de547390bd5d407',1,'Uart']]],
   ['_5fsbrk_14',['_sbrk',['../syscalls_8c.html#aae54d7b9578ba1fc171ce6f30f4c68a3',1,'syscalls.c']]],
-  ['_5ftx_5fcomplete_5firq_15',['_tx_complete_irq',['../classUart.html#a0e3389473f37c73523767c8c2bdc06a9',1,'Uart']]]
+  ['_5ftx_5fcomplete_5firq_15',['_tx_complete_irq',['../classUart.html#a0e3389473f37c73523767c8c2bdc06a9',1,'Uart']]],
+  ['_5fwrite_16',['_write',['../write_8cpp.html#aa025a12d45f60c7d0eae249e61f0c7f9',1,'write.cpp']]]
 ];

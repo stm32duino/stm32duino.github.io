@@ -3133,6 +3133,8 @@ See the <a href="../FAQ/#debug">Debug</a> section of the FAQ for more details an
 </tr>
 </tbody>
 </table>
+<p>When the core logs are enabled (<code>NDEBUG</code> not defined), including the <code>arduino-cli compile --optimize-for-debug</code> build (<code>-Og -g</code>), the logs and the <code>printf()</code> family output (<code>stdout</code>, <code>stderr</code>) are sent to the debug UART by <code>_write()</code>, which initializes the debug UART if it is not already used by a <code>Serial</code> instance.</p>
+<p>The debug UART is driven by polling: it links the UART driver but not its interrupt handlers. The <code>USARTx_IRQHandler()</code> are only linked when the sketch uses <code>Serial</code> or a <code>HardwareSerial</code>, so a sketch which does not use them can define its own <code>USARTx_IRQHandler()</code> in a debug build. In a build with <code>NDEBUG</code> defined, the UART driver is linked only if <code>printf()</code> is used. Provide your own <code>_write()</code> to send the output elsewhere.</p>
 <h2 id="c-runtime-library">C Runtime Library</h2>
 <p>Menu: "<strong>Tools &gt; C Runtime Library</strong>"</p>
 <p>Selects the Newlib C library variant used at link time. By default the size optimized "nano" version is used, which does not support floating point in <code>printf()</code>/<code>scanf()</code> family functions.</p>

@@ -110,18 +110,48 @@ $(function(){initNavTree('main_8cpp.html','',''); });
 
 <p>Entry point of Arduino sketches: early initialization and main loop.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="Arduino_8h.html">Arduino.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &lt;unistd.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="Arduino_8h.html">Arduino.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:af8b5fb939aed48c43e25586e98b02883" id="r_af8b5fb939aed48c43e25586e98b02883"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af8b5fb939aed48c43e25586e98b02883">premain</a> ()</td></tr>
 <tr class="memdesc:af8b5fb939aed48c43e25586e98b02883"><td class="mdescLeft">&#160;</td><td class="mdescRight">Early initialization, run before static object allocation.  <br /></td></tr>
+<tr class="memitem:a7062f8ed225ef3ebd36024e71fd3c87a" id="r_a7062f8ed225ef3ebd36024e71fd3c87a"><td class="memItemLeft" align="right" valign="top">WEAK void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7062f8ed225ef3ebd36024e71fd3c87a">exit</a> (int status)</td></tr>
+<tr class="memdesc:a7062f8ed225ef3ebd36024e71fd3c87a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Halt on <a class="el" href="#a7062f8ed225ef3ebd36024e71fd3c87a" title="Halt on exit().">exit()</a>.  <br /></td></tr>
 <tr class="memitem:a840291bc02cba5474a4cb46a9b9566fe" id="r_a840291bc02cba5474a4cb46a9b9566fe"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a840291bc02cba5474a4cb46a9b9566fe">main</a> (void)</td></tr>
 <tr class="memdesc:a840291bc02cba5474a4cb46a9b9566fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main entry point of the Arduino application.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Entry point of Arduino sketches: early initialization and main loop. </p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a id="a7062f8ed225ef3ebd36024e71fd3c87a" name="a7062f8ed225ef3ebd36024e71fd3c87a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7062f8ed225ef3ebd36024e71fd3c87a">&#9670;&#160;</a></span>exit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">WEAK void exit </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>status</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Halt on <a class="el" href="#a7062f8ed225ef3ebd36024e71fd3c87a" title="Halt on exit().">exit()</a>. </p>
+<p>Replaces the C library <a class="el" href="#a7062f8ed225ef3ebd36024e71fd3c87a" title="Halt on exit().">exit()</a>, which pulls in the stdio cleanup. That links <a class="el" href="write_8cpp.html#aa025a12d45f60c7d0eae249e61f0c7f9" title="Write to a file descriptor, called by the C library.">_write()</a> and, through it, the whole UART driver in every sketch, even when <a class="el" href="#a840291bc02cba5474a4cb46a9b9566fe" title="Main entry point of the Arduino application.">main()</a> never returns. Weak, so a sketch can provide its own.</p>
+<dl class="section note"><dt>Note</dt><dd>The atexit() handlers and static destructors are not run and stdio buffers are not flushed.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">status</td><td>Exit status, unused. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a840291bc02cba5474a4cb46a9b9566fe" name="a840291bc02cba5474a4cb46a9b9566fe"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a840291bc02cba5474a4cb46a9b9566fe">&#9670;&#160;</a></span>main()</h2>
 

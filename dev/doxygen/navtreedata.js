@@ -61,9 +61,9 @@ var NAVTREEINDEX =
 "classTwoWire.html#a586cbdcad2958a65fdd085c9e9fe428f",
 "globals_m.html",
 "group__STM32WB0x__System__Private__Defines.html",
-"stm32f0xx__hal__conf__default_8h.html#a83f109da654b670743786c6a45284b96",
-"stm32wb0x__hal__conf__default_8h.html#ab4c1548409c388cb6fe005bf26f242ee",
-"twi_8h.html#aa8cf2eb929a5172f606a444099c6e447a2d24145dd6f2212d7b5b43b29dac2d33"
+"stm32f0xx__hal__conf__default_8h.html#a7bbb9d19e5189a6ccd0fb6fa6177d20d",
+"stm32wb0x__hal__conf__default_8h.html#aae550dad9f96d52cfce5e539adadbbb4",
+"twi_8h.html#aa8cf2eb929a5172f606a444099c6e447a208fe5137c571cb6103bb601a5f1b451"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

@@ -1,13 +1,13 @@
 var searchData=
 [
   ['uart_0',['Uart',['../classUart.html#a3d9db049d658698d9b49bbc6ccbc9072',1,'Uart::Uart(pin_size_t _rx, pin_size_t _tx, pin_size_t _rts=NUM_DIGITAL_PINS, pin_size_t _cts=NUM_DIGITAL_PINS)'],['../classUart.html#a47272875d94395da243d3d617faab5df',1,'Uart::Uart(PinName _rx, PinName _tx, PinName _rts=NC, PinName _cts=NC)'],['../classUart.html#a9772795ddc4655a3d9bf79ceae7f29c9',1,'Uart::Uart(void *peripheral, HalfDuplexMode_t halfDuplex=HALF_DUPLEX_DISABLED)'],['../classUart.html#a9466269c30117dd29bb9ee059792b1fd',1,'Uart::Uart(pin_size_t _rxtx)'],['../classUart.html#a7014b37ba2b17cac853ed5de6669d798',1,'Uart::Uart(PinName _rxtx)']]],
-  ['uart_5fattach_5frx_5fcallback_1',['uart_attach_rx_callback',['../uart_8h.html#a4829f47f0d4ce7e8a3c9fbe1bd9d1686',1,'uart.c']]],
-  ['uart_5fattach_5ftx_5fcallback_2',['uart_attach_tx_callback',['../uart_8h.html#a70c66b2ba443bd09a5ccf294516ec4dd',1,'uart.c']]],
+  ['uart_5fattach_5frx_5fcallback_1',['uart_attach_rx_callback',['../uart__serial_8c.html#a4829f47f0d4ce7e8a3c9fbe1bd9d1686',1,'uart_attach_rx_callback(serial_t *obj, void(*callback)(serial_t *)):&#160;uart_serial.c'],['../uart_8h.html#a4829f47f0d4ce7e8a3c9fbe1bd9d1686',1,'uart_attach_rx_callback(serial_t *obj, void(*callback)(serial_t *)):&#160;uart_serial.c']]],
+  ['uart_5fattach_5ftx_5fcallback_2',['uart_attach_tx_callback',['../uart__serial_8c.html#a70c66b2ba443bd09a5ccf294516ec4dd',1,'uart_attach_tx_callback(serial_t *obj, int(*callback)(serial_t *), size_t size):&#160;uart_serial.c'],['../uart_8h.html#a70c66b2ba443bd09a5ccf294516ec4dd',1,'uart_attach_tx_callback(serial_t *obj, int(*callback)(serial_t *), size_t size):&#160;uart_serial.c']]],
   ['uart_5fdebug_5fwrite_3',['uart_debug_write',['../uart_8h.html#aee883c6495a62b08cd1d003586232fc8',1,'uart.c']]],
   ['uart_5fdeinit_4',['uart_deinit',['../uart_8h.html#ad8d186421c24b858d4b3197349e19367',1,'uart.c']]],
-  ['uart_5fenable_5frx_5',['uart_enable_rx',['../uart_8h.html#a74ea62373e02c83a6e8913271638cb0f',1,'uart.c']]],
-  ['uart_5fenable_5ftx_6',['uart_enable_tx',['../uart_8h.html#ac1a5b8602fc708a2ff8ff423fcbcb0d1',1,'uart.c']]],
-  ['uart_5fgetc_7',['uart_getc',['../uart_8h.html#ada55e1cc29b02c0a8169983e987de666',1,'uart.c']]],
+  ['uart_5fenable_5frx_5',['uart_enable_rx',['../uart__serial_8c.html#a74ea62373e02c83a6e8913271638cb0f',1,'uart_enable_rx(serial_t *obj):&#160;uart_serial.c'],['../uart_8h.html#a74ea62373e02c83a6e8913271638cb0f',1,'uart_enable_rx(serial_t *obj):&#160;uart_serial.c']]],
+  ['uart_5fenable_5ftx_6',['uart_enable_tx',['../uart__serial_8c.html#ac1a5b8602fc708a2ff8ff423fcbcb0d1',1,'uart_enable_tx(serial_t *obj):&#160;uart_serial.c'],['../uart_8h.html#ac1a5b8602fc708a2ff8ff423fcbcb0d1',1,'uart_enable_tx(serial_t *obj):&#160;uart_serial.c']]],
+  ['uart_5fgetc_7',['uart_getc',['../uart__serial_8c.html#ada55e1cc29b02c0a8169983e987de666',1,'uart_getc(serial_t *obj, unsigned char *c):&#160;uart_serial.c'],['../uart_8h.html#ada55e1cc29b02c0a8169983e987de666',1,'uart_getc(serial_t *obj, unsigned char *c):&#160;uart_serial.c']]],
   ['uart_5finit_8',['uart_init',['../uart_8h.html#aedb7003b57ff0c51f09cfc26f31060d6',1,'uart.c']]],
   ['ultoa_9',['ultoa',['../itoa_8c.html#a18d222c5ed68775a85ea6ca52ab9069d',1,'itoa.c']]],
   ['update_10',['update',['../structEERef.html#a37397f1e717d38f6cae2687346ea086d',1,'EERef::update()'],['../structEEPROMClass.html#ae74589b3ca2b2b2114a7d0706630da26',1,'EEPROMClass::update()']]],

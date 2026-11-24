@@ -3365,7 +3365,7 @@ Each <code>stm32yyxx_hal_conf_default.h</code> file disables HAL modules that ar
 <li><code>USE_SD_TRANSCEIVER</code>: Enable the microSD transceiver</li>
 </ul>
 <h2 id="use-hal-modules-without-arduino-ownership">Use HAL modules without Arduino ownership</h2>
-<p>STM32 peripherals have many powerful features. Some of them are used by default by the Arduino API: I2C, SPI, TIM, U(S)ART, ... and take over IRQ Handlers (ex: <code>TIMx_IRQHandler</code>) and other HAL weaked functions (ex: <code>HAL_XXX_MspInit()</code>).
+<p>STM32 peripherals have many powerful features. Some of them are used by default by the Arduino API: I2C, SPI, TIM, U(S)ART, ... and take over IRQ Handlers (ex: <code>TIMx_IRQHandler</code>) and other HAL weaked functions (ex: <code>HAL_UART_RxCpltCallback()</code>).
 For advanced user applications, it could be useful to take control of those IRQ handlers.</p>
 <p>Since core version 1.8.0, it is possible to disable the use of selected HAL modules by the Arduino API.</p>
 <p>Defining <code>HAL_PPP_MODULE_ONLY</code> in <code>build_opt.h</code> or <code>hal_conf_extra.h</code> allows the application to use a HAL peripheral module without having the Arduino core use that peripheral.</p>
